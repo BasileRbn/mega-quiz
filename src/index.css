@@ -1,0 +1,66 @@
+:root {
+  --color-bg: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-accent: #38bdf8;
+  --color-accent-glow: rgba(56, 189, 248, 0.5);
+  --color-success: #4ade80;
+  --color-error: #f472b6;
+  --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 15px var(--color-accent-glow);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden; /* Prevent scrolling on the game screen */
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+  border-radius: 0; 
+  padding: 0;
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: var(--color-accent);
+  color: #0f172a;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.frosted {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

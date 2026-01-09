@@ -1,0 +1,17 @@
+HTTP/2 404 
+date: Wed, 31 Dec 2025 12:51:25 GMT
+server: Varnish
+x-cache: cp6002 int
+x-cache-status: int-front
+server-timing: cache;desc="int-front", host;desc="cp6002"
+strict-transport-security: max-age=106384710; includeSubDomains; preload
+report-to: { "group": "wm_nel", "max_age": 604800, "endpoints": [{ "url": "https://intake-logging.wikimedia.org/v1/events?stream=w3c.reportingapi.network_error&schema_uri=/w3c/reportingapi/network_error/1.0.0" }] }
+nel: { "report_to": "wm_nel", "max_age": 604800, "failure_fraction": 0.05, "success_fraction": 0.0}
+x-client-ip: 2a01:cb1d:821:e100:1066:ae0b:9d12:790e
+access-control-allow-origin: *
+access-control-expose-headers: Age, Date, Content-Length, Content-Range, X-Content-Duration, X-Cache
+timing-allow-origin: *
+content-type: text/html; charset=utf-8
+content-length: 2022
+x-request-id: 25a90eee-58c2-4e16-88b1-2995aebab541
+

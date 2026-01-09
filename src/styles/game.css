@@ -1,0 +1,1358 @@
+/* Global Spec */
+:root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-y: auto;
+    background-color: #0f172a;
+}
+
+/* Layout Utilities */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background-color: #a3cef1;
+    cursor: crosshair;
+}
+
+/* Custom Cursor specifically for map if needed */
+.leaflet-container {
+    cursor: crosshair !important;
+}
+
+.absolute-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.z-high {
+    z-index: 100;
+}
+
+.z-max {
+    z-index: 9999;
+}
+
+/* Intro & Summary Screens */
+.modal-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    text-align: center;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 90%;
+    border-radius: 1.5rem;
+    background: white;
+    color: #1e293b;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.title-gradient {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(to right, #2563eb, #0891b2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Enhanced Buttons */
+.btn-primary {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.25rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: white;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-restart {
+    background: linear-gradient(135deg, #22c55e, #10b981);
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+}
+
+/* Menu Button - Fixed Position */
+.btn-menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .btn-menu {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.85rem;
+        top: 8px;
+        left: 8px;
+    }
+}
+
+/* Glassmorphism Utility */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 1.5rem;
+}
+
+/* ScoreBoard / HUD */
+.hud-container {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 9999;
+}
+
+.hud-panel {
+    pointer-events: auto;
+    padding: 0.75rem 2rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.hud-stats {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.hud-stats span {
+    color: #0f172a;
+    font-size: 1.2rem;
+}
+
+.target-city h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0;
+}
+
+/* Vertical Timer Bar (Right Side) */
+.timer-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60vh;
+    width: 24px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 9999px;
+    padding: 4px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+}
+
+.timer-bar-fill {
+    width: 100%;
+    background: linear-gradient(to top, #ef4444, #f59e0b, #22c55e);
+    border-radius: 9999px;
+    transition: height 1s linear;
+}
+
+/* Timer Warning State (< 5 seconds) */
+.timer-warning {
+    animation: timerPulse 0.5s ease-in-out infinite;
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+}
+
+.timer-bar-warning {
+    background: linear-gradient(to top, #ef4444, #dc2626) !important;
+}
+
+@keyframes timerPulse {
+
+    0%,
+    100% {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+    }
+
+    50% {
+        transform: translateY(-50%) scale(1.05);
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.8);
+    }
+}
+
+/* Shrink animation for feedback progress bar */
+@keyframes shrink {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* Feedback Popup */
+.feedback-popup {
+    pointer-events: auto;
+    padding: 1rem 2.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    background: white;
+    color: #0f172a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: bounceIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dist-val {
+    font-weight: 700;
+    color: #f59e0b;
+}
+
+.points-val {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #22c55e;
+}
+
+/* Menu Cards Enhanced */
+.menu-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 4px solid white;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #3b82f6;
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.4);
+}
+
+.card-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.menu-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.menu-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Leaderboard Styles */
+.leaderboard-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.leaderboard-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.leaderboard-table th {
+    font-size: 0.8rem;
+    color: #64748b;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.leaderboard-table td {
+    padding: 0.5rem 0;
+    font-weight: 600;
+    color: #334155;
+}
+
+.leaderboard-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.leaderboard-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.leaderboard-input:focus {
+    border-color: #3b82f6;
+}
+
+.leaderboard-btn-save {
+    padding: 0.8rem 1.5rem;
+    background: #3b82f6;
+    color: white;
+    border-radius: 0.5rem;
+    font-weight: 700;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Quiz Styles */
+.quiz-option-btn {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-option-btn:hover:not(:disabled) {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+.quiz-option-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #cbd5e1;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.joker-btn {
+    background: linear-gradient(135deg, #facc15, #eab308);
+    color: #422006;
+    border: 4px solid #fef08a;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.quiz-image-container {
+    position: relative;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 6px solid white;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.quiz-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.quiz-image:hover {
+    transform: scale(1.05);
+}
+
+/* Bottom Target Panel */
+.target-panel-bottom {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1rem 3rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 1.5rem;
+    text-align: center;
+    pointer-events: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+    z-index: 9998;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}
+
+/* Redesigned HUD - Non Intrusive */
+.hud-pill-top-right {
+    position: absolute;
+    top: 1rem;
+    right: 60px;
+    /* Left of timer */
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid white;
+    pointer-events: auto;
+    z-index: 9998;
+}
+
+.hud-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.hud-value {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hud-separator {
+    color: #cbd5e1;
+}
+
+/* Ensure bottom panel is well positioned */
+.target-panel-bottom {
+    bottom: 3rem !important;
+    /* Force higher up from edge */
+    min-width: 300px;
+}
+
+/* Left Sidebar HUD */
+.hud-container-left {
+    position: absolute;
+    top: 100px;
+    /* Below Menu button */
+    left: 20px;
+    z-index: 9999;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.hud-container-left .hud-panel {
+    pointer-events: auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.5rem;
+    border: 3px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    min-width: 220px;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* FORCED SIDEBAR RELOCATION */
+.hud-sidebar {
+    position: absolute;
+    top: 100px !important;
+    left: 20px !important;
+    z-index: 99999;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sidebar-card {
+    pointer-events: auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.5rem;
+    border: 3px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    min-width: 220px;
+    animation: slideInLeft 0.5s ease-out;
+}
+
+/* Flag Bonus Animations */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-zoomIn {
+    animation: zoomIn 0.5s ease-out forwards;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.animate-shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+/* Tailwind Utilities needed if not present */
+.text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+}
+
+.font-black {
+    font-weight: 900;
+}
+
+.text-green-500 {
+    color: #22c55e;
+}
+
+.text-red-500 {
+    color: #ef4444;
+}
+
+.text-green-400 {
+    color: #4ade80;
+}
+
+.text-red-400 {
+    color: #f87171;
+}
+
+.gap-12 {
+    gap: 3rem;
+}
+
+.shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.border-8 {
+    border-width: 8px;
+}
+
+.border-4 {
+    border-width: 4px;
+}
+
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.text-white {
+    color: white;
+}
+
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+.mt-6 {
+    margin-top: 1.5rem;
+}
+
+.mt-8 {
+    margin-top: 2rem;
+}
+
+.opacity-70 {
+    opacity: 0.7;
+}
+
+/* Map Glow Animations */
+@keyframes glowGreen {
+    0% {
+        fill-opacity: 0.4;
+    }
+
+    50% {
+        fill-opacity: 0.8;
+    }
+
+    100% {
+        fill-opacity: 0.4;
+    }
+}
+
+.map-glow-green {
+    animation: glowGreen 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px #22c55e);
+}
+
+@keyframes glowRed {
+    0% {
+        fill-opacity: 0.4;
+    }
+
+    50% {
+        fill-opacity: 0.8;
+    }
+
+    100% {
+        fill-opacity: 0.4;
+    }
+}
+
+.map-glow-red {
+    animation: glowRed 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px #ef4444);
+}
+
+.hud-bottom-left {
+    position: absolute;
+    bottom: 40px !important;
+    left: 20px !important;
+    top: auto !important;
+    z-index: 99999;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Responsive Utilities for Quiz */
+.quiz-img-responsive {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    transition: all 0.5s ease-out;
+}
+
+@media (min-width: 768px) {
+
+    /* Tablet */
+    .quiz-img-responsive {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    /* Desktop */
+    .quiz-img-responsive {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+.quiz-grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+    transition: margin-top 0.3s;
+}
+
+@media (min-width: 768px) {
+    .quiz-grid-responsive {
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+}
+
+
+/* Responsive Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+
+    /* Large Mobile / Small Tablet */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+
+    /* Desktop - 4 cols if possible, or 2x2 centered */
+    .menu-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1400px;
+    }
+}
+
+/* Enhanced Quiz Button Response */
+.quiz-option-btn {
+    /* Ensure base styles from before are kept or overwritten */
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .quiz-option-btn {
+        font-size: 1.4rem;
+        /* Bigger text on tablet */
+        padding: 1.5rem;
+        /* Bigger touch target */
+        min-height: 100px;
+    }
+}
+
+
+/* Quiz Feedback States */
+.quiz-btn-correct {
+    background: #22c55e !important;
+    color: white !important;
+    border-color: #4ade80 !important;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.6) !important;
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.quiz-btn-wrong {
+    background: #ef4444 !important;
+    color: white !important;
+    border-color: #fca5a5 !important;
+    opacity: 0.9;
+}
+
+.quiz-btn-dim {
+    opacity: 0.5;
+    filter: grayscale(1);
+    transform: scale(0.95);
+    background: #e2e8f0;
+    color: #94a3b8;
+}
+
+/* Responsive Fixes Phase 3 */
+.main-title {
+    font-size: 2.5rem;
+}
+
+@media (min-width: 768px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
+}
+
+.absolute-cover {
+    overflow-y: auto !important;
+    /* Allow scrolling content */
+    padding: 1rem 0;
+    /* Add vertical breathing room */
+}
+
+/* Ensure centering works with scroll */
+.flex-center {
+    min-height: 100%;
+    height: auto;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+/* Compact rules for Tablet/Mobile */
+.menu-card {
+    padding: 1.5rem !important;
+}
+
+@media (min-width: 1024px) {
+    .menu-card {
+        padding: 2.5rem !important;
+    }
+}
+
+.quiz-img-responsive {
+    max-height: 40vh;
+    /* Constraint image height */
+    width: auto;
+    margin-bottom: 0;
+}
+
+.quiz-grid-responsive {
+    margin-top: 1rem !important;
+}
+
+
+/* COMPACT MODE for Laptops & Landscape Tablets */
+@media (max-height: 900px) {
+    .quiz-img-responsive {
+        max-height: 25vh !important;
+    }
+
+    .quiz-grid-responsive {
+        margin-top: 0.5rem !important;
+        gap: 0.8rem !important;
+    }
+
+    .quiz-option-btn {
+        padding: 0.6rem !important;
+        min-height: 50px !important;
+        font-size: 1rem !important;
+    }
+
+    .joker-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 1rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .main-title {
+        font-size: 2.5rem !important;
+        margin-bottom: 0.2rem !important;
+    }
+
+    .menu-grid {
+        margin-top: 1rem !important;
+        gap: 1rem !important;
+    }
+}
+
+
+/* ULTRA COMPACT MODE for iPad Landscape */
+@media (max-height: 900px) {
+
+    /* Shrink image further */
+    .quiz-img-responsive {
+        max-height: 22vh !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Shrink buttons */
+    .quiz-option-btn {
+        min-height: 40px !important;
+        padding: 0.3rem !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* Shrink gaps */
+    .quiz-grid-responsive {
+        gap: 0.5rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    /* Shrink Joker */
+    .joker-btn {
+        padding: 0.4rem 1rem !important;
+        margin-top: 0.4rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+
+/* SIDE-BY-SIDE LAYOUT for Landscape Tablets/Laptops */
+.quiz-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Center Vertically if ample space */
+    width: 100%;
+    min-height: 100%;
+    /* Ensure it fills parent */
+    max-width: 1400px;
+    padding: 1rem;
+    padding-top: 4rem;
+    margin: 0 auto;
+}
+
+.quiz-main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+}
+
+.quiz-left-panel,
+.quiz-right-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (min-width: 700px) and (max-height: 900px) and (orientation: landscape) {
+    .quiz-main-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+        padding-bottom: 2rem;
+    }
+
+    .quiz-left-panel {
+        width: 40%;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-end;
+        /* Push image slightly right towards center */
+    }
+
+    .quiz-right-panel {
+        width: 50%;
+        height: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        /* Push grid slightly left towards center */
+    }
+
+    /* Large Image Allowed in Landscape */
+    .quiz-img-responsive {
+        max-height: 65vh !important;
+        width: auto !important;
+        max-width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .quiz-grid-responsive {
+        margin-top: 0 !important;
+        width: 100% !important;
+        max-width: 500px !important;
+        /* Dont stretch too wide */
+    }
+
+    /* Restore normal button sizes since we have space */
+    .quiz-option-btn {
+        min-height: 60px !important;
+        font-size: 1.1rem !important;
+        padding: 1rem !important;
+    }
+
+    .joker-btn {
+        margin-top: 1rem !important;
+        padding: 1rem !important;
+    }
+}
+
+
+/* ============================================
+   MOBILE-SPECIFIC IMPROVEMENTS
+   ============================================ */
+
+/* Small Mobile Devices (< 480px) */
+@media (max-width: 480px) {
+
+    /* ---- MENU IMPROVEMENTS ---- */
+    .menu-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        margin-top: 1rem !important;
+    }
+
+    .menu-card {
+        padding: 1.25rem !important;
+        border-radius: 1.25rem !important;
+        flex-direction: row !important;
+        gap: 1rem !important;
+        text-align: left !important;
+    }
+
+    .menu-card .card-icon {
+        font-size: 3rem !important;
+        margin-bottom: 0 !important;
+        flex-shrink: 0;
+    }
+
+    .menu-card h3 {
+        font-size: 1.2rem !important;
+        margin: 0 !important;
+    }
+
+    .menu-card p {
+        font-size: 0.8rem !important;
+        margin: 0.25rem 0 0 0 !important;
+    }
+
+    .modal-content {
+        padding: 1.5rem !important;
+        width: 95% !important;
+        max-height: 90vh !important;
+        overflow-y: auto !important;
+    }
+
+    .main-title {
+        font-size: 2rem !important;
+    }
+
+    .title-gradient {
+        font-size: 1.8rem !important;
+    }
+
+    .subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* ---- HUD IMPROVEMENTS ---- */
+    .hud-sidebar,
+    .hud-container-left,
+    .hud-bottom-left {
+        top: auto !important;
+        bottom: 10px !important;
+        left: 10px !important;
+    }
+
+    .sidebar-card {
+        min-width: unset !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 1rem !important;
+    }
+
+    .sidebar-card .hud-stats {
+        font-size: 0.7rem !important;
+    }
+
+    .sidebar-card .hud-stats span {
+        font-size: 1rem !important;
+    }
+
+    .sidebar-card .target-city {
+        margin-top: 0.5rem !important;
+    }
+
+    .sidebar-card .target-city h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .sidebar-card .target-city p {
+        font-size: 0.75rem !important;
+    }
+
+    /* ---- TIMER IMPROVEMENTS ---- */
+    .timer-container {
+        width: 16px !important;
+        right: 10px !important;
+        height: 50vh !important;
+        border-width: 1px !important;
+    }
+
+    /* ---- MENU BUTTON ---- */
+    .btn-primary[style*="top: 10px"][style*="left: 10px"] {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* ---- FEEDBACK POPUP ---- */
+    .feedback-popup {
+        padding: 0.75rem 1.5rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    .feedback-popup .points-val {
+        font-size: 1.4rem !important;
+    }
+
+    /* ---- BOTTOM PANEL ---- */
+    .target-panel-bottom {
+        padding: 0.75rem 1.5rem !important;
+        min-width: unset !important;
+        width: 90% !important;
+        max-width: 400px !important;
+        bottom: 1.5rem !important;
+    }
+
+    .target-panel-bottom h2 {
+        font-size: 1.2rem !important;
+    }
+
+    /* ---- QUIZ IMPROVEMENTS ---- */
+    .quiz-game-container {
+        padding: 0.5rem !important;
+        padding-top: 3.5rem !important;
+    }
+
+    .quiz-img-responsive {
+        width: 200px !important;
+        height: 200px !important;
+        max-height: 30vh !important;
+    }
+
+    .quiz-grid-responsive {
+        gap: 0.5rem !important;
+        margin-top: 0.75rem !important;
+    }
+
+    .quiz-option-btn {
+        padding: 0.75rem !important;
+        font-size: 0.9rem !important;
+        min-height: 50px !important;
+        border-radius: 0.75rem !important;
+    }
+
+    .joker-btn {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.85rem !important;
+        margin-top: 0.5rem !important;
+    }
+
+    /* ---- LEADERBOARD ---- */
+    .leaderboard-container {
+        max-height: 150px !important;
+    }
+
+    .leaderboard-table td,
+    .leaderboard-table th {
+        padding: 0.4rem 0.25rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    .leaderboard-input {
+        padding: 0.6rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .leaderboard-btn-save {
+        padding: 0.6rem 1rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .score-huge {
+        font-size: 3rem !important;
+    }
+
+    /* ---- FLAG BONUS ---- */
+    .flag-card-container img {
+        height: 100px !important;
+    }
+}
+
+/* Medium Mobile (480px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+    .menu-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .menu-card {
+        padding: 1.5rem !important;
+    }
+
+    .menu-card .card-icon {
+        font-size: 4rem !important;
+    }
+
+    .sidebar-card {
+        min-width: 180px !important;
+        padding: 1rem !important;
+    }
+
+    .timer-container {
+        width: 20px !important;
+    }
+}
+
+/* Touch-friendly improvements for all mobile devices */
+@media (max-width: 768px) {
+
+    /* Ensure buttons are easily tappable (min 44px) */
+    button,
+    .menu-card,
+    .quiz-option-btn {
+        min-height: 44px;
+    }
+
+    /* Add active states for touch feedback */
+    .menu-card:active {
+        transform: scale(0.98) !important;
+        opacity: 0.9;
+    }
+
+    .quiz-option-btn:active:not(:disabled) {
+        transform: scale(0.97) !important;
+    }
+
+    .btn-primary:active {
+        transform: scale(0.95) !important;
+    }
+
+    /* Improve scrolling on modal content */
+    .modal-content {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Disable hover effects that don't work well on mobile */
+    .menu-card:hover {
+        transform: none;
+    }
+}
+
+/* Portrait mode specific adjustments */
+@media (max-width: 480px) and (orientation: portrait) {
+    .quiz-main-content {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+    }
+
+    .quiz-left-panel,
+    .quiz-right-panel {
+        width: 100% !important;
+    }
+}

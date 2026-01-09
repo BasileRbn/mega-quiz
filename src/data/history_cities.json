@@ -1,0 +1,1622 @@
+[
+    {
+        "id": 1,
+        "event": "Le Sacre de Jeanne d'Arc",
+        "date": "17 juillet 1429",
+        "city": "Reims",
+        "description": "C'est dans cette ville que Charles VII a été sacré roi de France, guidé par Jeanne d'Arc.",
+        "lat": 49.2583,
+        "lng": 4.0317
+    },
+    {
+        "id": 2,
+        "event": "Le Débarquement de Normandie",
+        "date": "6 juin 1944",
+        "city": "Colleville-sur-Mer",
+        "description": "Lieu emblématique d'Omaha Beach où les forces alliées ont débarqué pour libérer la France.",
+        "lat": 49.35,
+        "lng": -0.85
+    },
+    {
+        "id": 3,
+        "event": "Exil et Retour de Napoléon",
+        "date": "1 mars 1815",
+        "city": "Golfe-Juan",
+        "description": "L'endroit où Napoléon a débarqué après son exil sur l'île d'Elbe pour commencer les 'Cent-Jours'.",
+        "lat": 43.5667,
+        "lng": 7.0833
+    },
+    {
+        "id": 4,
+        "event": "Capitale des Gaules",
+        "date": "43 av. J.-C.",
+        "city": "Lyon",
+        "description": "Fondée sous le nom de Lugdunum, elle devient la capitale des Gaules sous l'Empire Romain.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 5,
+        "event": "Le Siège de La R...",
+        "date": "1627-1628",
+        "city": "La Rochelle",
+        "description": "Le Grand Siège ordonné par Louis XIII et Richelieu contre la place forte protestante.",
+        "lat": 46.1603,
+        "lng": -1.1511
+    },
+    {
+        "id": 6,
+        "event": "Palais des Papes",
+        "date": "1309-1377",
+        "city": "Avignon",
+        "description": "Pendant près d'un siècle, cette ville a été le siège de la chrétienté occidentale à la place de Rome.",
+        "lat": 43.9493,
+        "lng": 4.8055
+    },
+    {
+        "id": 7,
+        "event": "Première Victoire de Jeanne d'Arc",
+        "date": "8 mai 1429",
+        "city": "Orléans",
+        "description": "La libération de cette ville assiégée par les Anglais fut le premier succès majeur de Jeanne d'Arc.",
+        "lat": 47.9029,
+        "lng": 1.9092
+    },
+    {
+        "id": 8,
+        "event": "Signature de l'Armistice de 1918",
+        "date": "11 novembre 1918",
+        "city": "Compiègne",
+        "description": "L'armistice mettant fin à la Première Guerre mondiale a été signé dans la forêt proche de cette ville.",
+        "lat": 49.4179,
+        "lng": 2.8261
+    },
+    {
+        "id": 9,
+        "event": "Roi Soleil et la Cour",
+        "date": "1682",
+        "city": "Versailles",
+        "description": "Louis XIV y installe officiellement la Cour et le gouvernement de la France dans son immense château.",
+        "lat": 48.8049,
+        "lng": 2.1204
+    },
+    {
+        "id": 10,
+        "event": "Capitale de Noël",
+        "date": "Depuis 1570",
+        "city": "Strasbourg",
+        "description": "La ville accueille le plus ancien marché de Noël de France, le 'Christkindelsmärik'.",
+        "lat": 48.5734,
+        "lng": 7.7521
+    },
+    {
+        "id": 11,
+        "event": "Baptême de Clovis",
+        "date": "Vers 496",
+        "city": "Reims",
+        "description": "Ville où Clovis est baptisé, marquant la christianisation du royaume franc.",
+        "lat": 49.2583,
+        "lng": 4.0317
+    },
+    {
+        "id": 12,
+        "event": "Martyre de Jeanne d'Arc",
+        "date": "1431",
+        "city": "Rouen",
+        "description": "Ville où Jeanne d’Arc est condamnée et brûlée vive par les Anglais.",
+        "lat": 49.4432,
+        "lng": 1.0999
+    },
+    {
+        "id": 13,
+        "event": "Édit de N....",
+        "date": "1598",
+        "city": "Nantes",
+        "description": "Ville où Henri IV signe l’Édit de tolérance religieuse mettant fin aux guerres de Religion.",
+        "lat": 47.2184,
+        "lng": -1.5536
+    },
+    {
+        "id": 14,
+        "event": "Bataille de P.....",
+        "date": "732",
+        "city": "Poitiers",
+        "description": "Ville où Charles Martel arrête l’avancée des armées musulmanes.",
+        "lat": 46.5826,
+        "lng": 0.3435
+    },
+    {
+        "id": 15,
+        "event": "Fondation du H.....",
+        "date": "1517",
+        "city": "Le Havre",
+        "description": "Ville portuaire stratégique fondée par François Ier pour le commerce maritime.",
+        "lat": 49.4944,
+        "lng": 0.1079
+    },
+    {
+        "id": 16,
+        "event": "Naissance de Napoléon",
+        "date": "1769",
+        "city": "Ajaccio",
+        "description": "Ville natale de Napoléon Bonaparte en Corse.",
+        "lat": 41.9272,
+        "lng": 8.7346
+    },
+    {
+        "id": 17,
+        "event": "Bataille de V.....",
+        "date": "1916",
+        "city": "Verdun",
+        "description": "Ville symbole de l'une des plus grandes et sanglantes batailles de la Première Guerre mondiale.",
+        "lat": 49.1667,
+        "lng": 5.3833
+    },
+    {
+        "id": 18,
+        "event": "La Marseillaise",
+        "date": "1792",
+        "city": "Marseille",
+        "description": "Ville où est chanté pour la première fois l'hymne national par des fédérés en marche vers Paris.",
+        "lat": 43.2965,
+        "lng": 5.3698
+    },
+    {
+        "id": 19,
+        "event": "Rattachement de la Bretagne",
+        "date": "1491",
+        "city": "Rennes",
+        "description": "Ville symbolique du mariage d’Anne de Bretagne, préparant l'union du duché à la France.",
+        "lat": 48.1173,
+        "lng": -1.6778
+    },
+    {
+        "id": 20,
+        "event": "Appel à la Croisade",
+        "date": "1095",
+        "city": "Clermont-Ferrand",
+        "description": "Ville où le pape Urbain II prêche la première croisade lors du concile.",
+        "lat": 45.7772,
+        "lng": 3.087
+    },
+    {
+        "id": 21,
+        "event": "Cité Médiévale Fortifiée",
+        "date": "Moyen Âge",
+        "city": "Carcassonne",
+        "description": "Ville fortifiée emblématique, théâtre des croisades contre les Cathares.",
+        "lat": 43.2121,
+        "lng": 2.3529
+    },
+    {
+        "id": 22,
+        "event": "Traité de T.....",
+        "date": "1420",
+        "city": "Troyes",
+        "description": "Ville où fut signé le traité déshéritant le Dauphin au profit du roi d'Angleterre pendant la guerre de Cent Ans.",
+        "lat": 48.3,
+        "lng": 4.0833
+    },
+    {
+        "id": 23,
+        "event": "Capitale de l'Arme",
+        "date": "XIXe siècle",
+        "city": "Saint-Étienne",
+        "description": "Ville industrielle surnommée la capitale française de l’arme et du cycle.",
+        "lat": 45.4397,
+        "lng": 4.3872
+    },
+    {
+        "id": 24,
+        "event": "Abbaye aux Hommes",
+        "date": "XIe siècle",
+        "city": "Caen",
+        "description": "Ville où Guillaume le Conquérant fit bâtir deux grandes abbayes.",
+        "lat": 49.1829,
+        "lng": -0.3707
+    },
+    {
+        "id": 25,
+        "event": "Paix d'A....",
+        "date": "1802",
+        "city": "Amiens",
+        "description": "Ville où est signé le traité de paix temporaire entre la France napoléonienne et l’Angleterre.",
+        "lat": 49.8941,
+        "lng": 2.2957
+    },
+    {
+        "id": 26,
+        "event": "Journée des Tuiles",
+        "date": "1788",
+        "city": "Grenoble",
+        "description": "Ville où une émeute populaire marque les prémices de la Révolution française.",
+        "lat": 45.1885,
+        "lng": 5.7245
+    },
+    {
+        "id": 27,
+        "event": "Sac de B.....",
+        "date": "1209",
+        "city": "Béziers",
+        "description": "Ville théâtre d'un massacre majeur de la population lors de la croisade des Albigeois.",
+        "lat": 43.3412,
+        "lng": 3.214
+    },
+    {
+        "id": 28,
+        "event": "Vesunna",
+        "date": "Antiquité",
+        "city": "Périgueux",
+        "description": "Ancienne cité gallo-romaine importante, connue sous le nom de Vesunna.",
+        "lat": 45.1929,
+        "lng": 0.7217
+    },
+    {
+        "id": 29,
+        "event": "Château de François Ier",
+        "date": "1519",
+        "city": "Chambord",
+        "description": "Lieu de construction du plus vaste et emblématique château de la Loire voulu par François Ier.",
+        "lat": 47.6167,
+        "lng": 1.5167
+    },
+    {
+        "id": 30,
+        "event": "Opération Chariot",
+        "date": "1942",
+        "city": "Saint-Nazaire",
+        "description": "Ville portuaire ciblée par un raid commando allié audacieux contre sa forme de radoub.",
+        "lat": 47.2833,
+        "lng": -2.2
+    },
+    {
+        "id": 31,
+        "event": "États Généraux",
+        "date": "1789",
+        "city": "Versailles",
+        "description": "Ville où Louis XVI convoque les États généraux, événement déclencheur de la Révolution.",
+        "lat": 48.8049,
+        "lng": 2.1204
+    },
+    {
+        "id": 32,
+        "event": "Commune de P.....",
+        "date": "1871",
+        "city": "Paris",
+        "description": "Ville siège d'une insurrection révolutionnaire sanglante après la guerre franco-prussienne.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 33,
+        "event": "Naissance d'Henri IV",
+        "date": "1553",
+        "city": "Pau",
+        "description": "Ville natale du roi Henri IV, au château de P.. en Béarn.",
+        "lat": 43.3,
+        "lng": -0.3667
+    },
+    {
+        "id": 34,
+        "event": "Bataille de Normandie",
+        "date": "1944",
+        "city": "Caen",
+        "description": "Ville martyre lourdement détruite lors des combats de la Libération.",
+        "lat": 49.1829,
+        "lng": -0.3707
+    },
+    {
+        "id": 35,
+        "event": "Concile de S......",
+        "date": "1140",
+        "city": "Sens",
+        "description": "Ville où se tient un important concile condamnant les thèses d'Abélard.",
+        "lat": 48.2,
+        "lng": 3.2833
+    },
+    {
+        "id": 36,
+        "event": "Annexion de S.........",
+        "date": "1681",
+        "city": "Strasbourg",
+        "description": "Ville libre impériale annexée par Louis XIV à la France.",
+        "lat": 48.5734,
+        "lng": 7.7521
+    },
+    {
+        "id": 37,
+        "event": "Bataille de N.....",
+        "date": "1477",
+        "city": "Nancy",
+        "description": "Ville devant laquelle meurt Charles le Téméraire, duc de Bourgogne, lors d'une bataille décisive.",
+        "lat": 48.6921,
+        "lng": 6.1844
+    },
+    {
+        "id": 38,
+        "event": "Bastion Protestant",
+        "date": "XVIe siècle",
+        "city": "Nîmes",
+        "description": "Ville du sud, importante place forte protestante durant les guerres de Religion.",
+        "lat": 43.8367,
+        "lng": 4.3601
+    },
+    {
+        "id": 39,
+        "event": "Reddition Allemande",
+        "date": "7 mai 1945",
+        "city": "Reims",
+        "description": "Ville où est signée la première reddition sans condition de l'aAllemagne nazie.",
+        "lat": 49.2583,
+        "lng": 4.0317
+    },
+    {
+        "id": 40,
+        "event": "Capitale de la Nation Corse",
+        "date": "XVIIIe siècle",
+        "city": "Corte",
+        "description": "Ville choisie par Pasquale Paoli comme capitale de la Corse indépendante.",
+        "lat": 42.3094,
+        "lng": 9.149
+    },
+    {
+        "id": 41,
+        "event": "Reprise de C.....",
+        "date": "1558",
+        "city": "Calais",
+        "description": "Ville reprise aux Anglais par le duc de Guise après deux siècles d'occupation.",
+        "lat": 50.9519,
+        "lng": 1.8564
+    },
+    {
+        "id": 42,
+        "event": "Capitale du Textile",
+        "date": "XIXe siècle",
+        "city": "Roubaix",
+        "description": "Ville du Nord devenue un centre mondial de l'industrie textile lors de la révolution industrielle.",
+        "lat": 50.6942,
+        "lng": 3.1746
+    },
+    {
+        "id": 43,
+        "event": "Université de T......",
+        "date": "1229",
+        "city": "Toulouse",
+        "description": "Création de l'une des plus anciennes universités de France après la croisade des Albigeois.",
+        "lat": 43.6047,
+        "lng": 1.4442
+    },
+    {
+        "id": 44,
+        "event": "Bataille de Bouvines",
+        "date": "1214",
+        "city": "Lille",
+        "description": "Grande métropole proche du lieu de la bataille décisive de Bouvines (victoire de Philippe Auguste).",
+        "lat": 50.6292,
+        "lng": 3.0573
+    },
+    {
+        "id": 45,
+        "event": "La Maison Carrée",
+        "date": "Ier siècle",
+        "city": "Nîmes",
+        "description": "Ville romaine abritant la Maison Carrée, l'un des temples romains les mieux conservés.",
+        "lat": 43.8367,
+        "lng": 4.3601
+    },
+    {
+        "id": 46,
+        "event": "Nécropole Royale",
+        "date": "Moyen Âge",
+        "city": "Saint-Denis",
+        "description": "Ville dont la basilique abrite les tombeaux de la plupart des rois de France.",
+        "lat": 48.9362,
+        "lng": 2.3574
+    },
+    {
+        "id": 47,
+        "event": "Camp de Boulogne",
+        "date": "1803-1805",
+        "city": "Boulogne-sur-Mer",
+        "description": "Ville où Napoléon rassembla la Grande Armée en vue d'envahir l'Angleterre.",
+        "lat": 50.7264,
+        "lng": 1.6147
+    },
+    {
+        "id": 48,
+        "event": "Cathédrale de C.....",
+        "date": "XIIe-XIIIe siècle",
+        "city": "Chartres",
+        "description": "Ville célèbre pour sa cathédrale gothique et ses vitraux exceptionnels, classée à l'UNESCO.",
+        "lat": 48.4469,
+        "lng": 1.4893
+    },
+    {
+        "id": 49,
+        "event": "Siège de B......",
+        "date": "1870-1871",
+        "city": "Belfort",
+        "description": "Ville ayant résisté héroïquement aux Prussiens, restant française grâce à sa défense.",
+        "lat": 47.6333,
+        "lng": 6.8667
+    },
+    {
+        "id": 50,
+        "event": "Place de Sûreté",
+        "date": "XVIIe siècle",
+        "city": "Montauban",
+        "description": "Ville du sud-ouest, place forte protestante qui résista au siège royal en 1621.",
+        "lat": 44.0181,
+        "lng": 1.3558
+    },
+    {
+        "id": 51,
+        "event": "Prise de la Bastille",
+        "date": "14 juillet 1789",
+        "city": "Paris",
+        "description": "Ville où la forteresse royale de la Bastille est prise par les émeutiers, marquant le début de la Révolution.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 52,
+        "event": "Parlement de Bretagne",
+        "date": "Ancien Régime",
+        "city": "Rennes",
+        "description": "Ville siège du Parlement de Bretagne, symbole de l'autonomie provinciale sous l'Ancien Régime.",
+        "lat": 48.1173,
+        "lng": -1.6778
+    },
+    {
+        "id": 53,
+        "event": "Arènes d'A.....",
+        "date": "Ier siècle",
+        "city": "Arles",
+        "description": "Ville abritant un immense amphithéâtre romain, témoignage de la grandeur de la Rome antique.",
+        "lat": 43.6767,
+        "lng": 4.6278
+    },
+    {
+        "id": 54,
+        "event": "Grand Siège de La R....",
+        "date": "1627-1628",
+        "city": "La Rochelle",
+        "description": "Ville protestante assiégée sur ordre de Richelieu pour briser sa résistance politique et militaire.",
+        "lat": 46.1603,
+        "lng": -1.1511
+    },
+    {
+        "id": 55,
+        "event": "Château de V......",
+        "date": "XVIIe siècle",
+        "city": "Versailles",
+        "description": "Ville où Louis XIV fait bâtir le plus grand château d'Europe, symbole de la monarchie absolue.",
+        "lat": 48.8049,
+        "lng": 2.1204
+    },
+    {
+        "id": 56,
+        "event": "Arsenal de B.....",
+        "date": "XVIIe siècle",
+        "city": "Brest",
+        "description": "Ville dont le port militaire et l'arsenal sont considérablement développés par Colbert.",
+        "lat": 48.3904,
+        "lng": -4.4861
+    },
+    {
+        "id": 57,
+        "event": "Bataille de C.....",
+        "date": "1346",
+        "city": "Crécy-en-Ponthieu",
+        "description": "Lieu d'une défaite majeure de la chevalerie française face aux archers anglais au début de la guerre de Cent Ans.",
+        "lat": 50.253,
+        "lng": 1.883
+    },
+    {
+        "id": 58,
+        "event": "Traité des Pyrénées",
+        "date": "1659",
+        "city": "Saint-Jean-de-Luz",
+        "description": "Ville où fut négocié le traité fixant la frontière avec l'Espagne et le mariage de Louis XIV.",
+        "lat": 43.39,
+        "lng": -1.66
+    },
+    {
+        "id": 59,
+        "event": "La Maison Carrée",
+        "date": "Ier siècle",
+        "city": "Nîmes",
+        "description": "Ville célèbre pour son temple romain exceptionnellement conservé.",
+        "lat": 43.8367,
+        "lng": 4.3601
+    },
+    {
+        "id": 60,
+        "event": "Port Négrier et Colonial",
+        "date": "XVIIIe siècle",
+        "city": "Nantes",
+        "description": "Ville devenue le premier port négrier de France et un centre majeur du commerce colonial.",
+        "lat": 47.2184,
+        "lng": -1.5536
+    },
+    {
+        "id": 61,
+        "event": "Palais des Papes",
+        "date": "XIVe siècle",
+        "city": "Avignon",
+        "description": "Ville capitale de la chrétienté au XIVe siècle, dominée par son immense palais gothique.",
+        "lat": 43.9493,
+        "lng": 4.8055
+    },
+    {
+        "id": 62,
+        "event": "Citadelle de B.....",
+        "date": "XVIIe siècle",
+        "city": "Besançon",
+        "description": "Ville protégée par une citadelle magistrale conçue par Vauban, classée à l'UNESCO.",
+        "lat": 47.2488,
+        "lng": 6.0182
+    },
+    {
+        "id": 63,
+        "event": "Omaha Beach",
+        "date": "6 juin 1944",
+        "city": "Saint-Laurent-sur-Mer",
+        "description": "Commune située au cœur du secteur d'Omaha Beach lors du débarquement allié.",
+        "lat": 49.3594,
+        "lng": -0.8764
+    },
+    {
+        "id": 64,
+        "event": "Merveille de l'Occident",
+        "date": "Moyen Âge",
+        "city": "Le Mont-Saint-Michel",
+        "description": "Îlot rocheux abritant une abbaye bénédictine, haut lieu de pèlerinage et d'architecture.",
+        "lat": 48.636,
+        "lng": -1.5114
+    },
+    {
+        "id": 65,
+        "event": "Tapisserie de B.....",
+        "date": "XIe siècle",
+        "city": "Bayeux",
+        "description": "Ville conservant la célèbre broderie relatant la conquête de l'Angleterre par Guillaume le Conquérant.",
+        "lat": 49.2773,
+        "lng": -0.7039
+    },
+    {
+        "id": 66,
+        "event": "Arsenal de T.....",
+        "date": "XVIIe siècle",
+        "city": "Toulon",
+        "description": "Ville devenue le principal port de guerre français sur la Méditerranée.",
+        "lat": 43.1242,
+        "lng": 5.928
+    },
+    {
+        "id": 67,
+        "event": "Journée des Dupes",
+        "date": "1630",
+        "city": "Paris",
+        "description": "Événement politique où Richelieu triomphe de ses ennemis à la cour de Louis XIII, au palais du Luxembourg.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 68,
+        "event": "Canal du Midi",
+        "date": "XVIIe siècle",
+        "city": "Toulouse",
+        "description": "Ville point de départ du Canal royal des Deux Mers, œuvre de Pierre-Paul Riquet.",
+        "lat": 43.6047,
+        "lng": 1.4442
+    },
+    {
+        "id": 69,
+        "event": "Place Stanislas",
+        "date": "XVIIIe siècle",
+        "city": "Nancy",
+        "description": "Ville dotée d'un ensemble architectural royal par Stanislas Leszczynski, duc de Lorraine.",
+        "lat": 48.6921,
+        "lng": 6.1844
+    },
+    {
+        "id": 70,
+        "event": "Pont du Gard",
+        "date": "Ier siècle",
+        "city": "Nîmes",
+        "description": "Ville alimentée en eau par l'aqueduc romain dont le Pont du Gard est le vestige le plus célèbre.",
+        "lat": 43.8367,
+        "lng": 4.3601
+    },
+    {
+        "id": 71,
+        "event": "Bourgeois de C.....",
+        "date": "1347",
+        "city": "Calais",
+        "description": "Ville dont six bourgeois se livrèrent au roi d'Angleterre pour sauver la population après un long siège.",
+        "lat": 50.9519,
+        "lng": 1.8564
+    },
+    {
+        "id": 72,
+        "event": "Donjon de L.....",
+        "date": "Moyen Âge",
+        "city": "Loches",
+        "description": "Ville possédant une puissante cité royale et un donjon, résidence favorite des Valois.",
+        "lat": 47.1333,
+        "lng": 1.0
+    },
+    {
+        "id": 73,
+        "event": "Concile de C......",
+        "date": "1095",
+        "city": "Clermont-Ferrand",
+        "description": "Lieu où le pape Urbain II lança l'appel à la première croisade pour délivrer Jérusalem.",
+        "lat": 45.7772,
+        "lng": 3.087
+    },
+    {
+        "id": 74,
+        "event": "Soierie",
+        "date": "Renaissance",
+        "city": "Lyon",
+        "description": "Ville devenue la capitale européenne de la soie grâce aux privilèges accordés par François Ier.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 75,
+        "event": "Procès de Pétain",
+        "date": "1945",
+        "city": "Paris",
+        "description": "Ville où se tint le procès du maréchal Pétain pour haute trahison à la Libération.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 76,
+        "event": "Bataille de T...-P.....",
+        "date": "732",
+        "city": "Poitiers",
+        "description": "Ville associée à la victoire de Charles Martel arrêtant l'expansion omeyyade.",
+        "lat": 46.5826,
+        "lng": 0.3435
+    },
+    {
+        "id": 77,
+        "event": "Édit de V.......",
+        "date": "1787",
+        "city": "Versailles",
+        "description": "Lieu de signature de l'édit de tolérance accordant l'état civil aux non-catholiques.",
+        "lat": 48.8049,
+        "lng": 2.1204
+    },
+    {
+        "id": 78,
+        "event": "Château de F.......",
+        "date": "Renaissance",
+        "city": "Fontainebleau",
+        "description": "Résidence royale agrandie par François Ier, devenue un foyer artistique majeur (École de F............).",
+        "lat": 48.4047,
+        "lng": 2.7016
+    },
+    {
+        "id": 79,
+        "event": "Faculté de Médecine",
+        "date": "Moyen Âge",
+        "city": "Montpellier",
+        "description": "Ville abritant la plus ancienne faculté de médecine du monde occidental encore en activité.",
+        "lat": 43.6108,
+        "lng": 3.8767
+    },
+    {
+        "id": 80,
+        "event": "Pont Valentré",
+        "date": "XIVe siècle",
+        "city": "Cahors",
+        "description": "Ville célèbre pour son pont fortifié médiéval à trois tours enjambant le Lot.",
+        "lat": 44.4491,
+        "lng": 1.4366
+    },
+    {
+        "id": 81,
+        "event": "Siège de T.....",
+        "date": "1793",
+        "city": "Toulon",
+        "description": "Siège où le jeune capitaine Napoléon Bonaparte s'illustra en reprenant la ville aux royalistes et Anglais.",
+        "lat": 43.1242,
+        "lng": 5.928
+    },
+    {
+        "id": 83,
+        "event": "Libération de C......",
+        "date": "Juin 1944",
+        "city": "Cherbourg-en-Cotentin",
+        "description": "Premier port en eau profonde libéré par les Alliés, vital pour le ravitaillement.",
+        "lat": 49.639,
+        "lng": -1.625
+    },
+    {
+        "id": 84,
+        "event": "Beffroi de L.....",
+        "date": "Moderne",
+        "city": "Lille",
+        "description": "Ville dominée par son immense beffroi, symbole des libertés communales et de la puissance du Nord.",
+        "lat": 50.6292,
+        "lng": 3.0573
+    },
+    {
+        "id": 85,
+        "event": "Procès des Templiers",
+        "date": "1307-1314",
+        "city": "Paris",
+        "description": "Lieu où l'Ordre du Temple fut jugé et détruit sur ordre de Philippe le Bel.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 86,
+        "event": "Bataille de S....-Q......",
+        "date": "1557",
+        "city": "Saint-Quentin",
+        "description": "Défaite française face aux Espagnols qui menaça Paris mais permit de gagner du temps.",
+        "lat": 49.8471,
+        "lng": 3.2874
+    },
+    {
+        "id": 87,
+        "event": "Cité de C..........",
+        "date": "XIXe siècle",
+        "city": "Carcassonne",
+        "description": "Ville dont la cité médiévale en ruines fut sauvée et restaurée par l'architecte Viollet-le-Duc.",
+        "lat": 43.2121,
+        "lng": 2.3529
+    },
+    {
+        "id": 88,
+        "event": "Cathédrale d'A.....",
+        "date": "XIIIe siècle",
+        "city": "Amiens",
+        "description": "Ville possédant la plus vaste cathédrale gothique de France par ses volumes intérieurs.",
+        "lat": 49.8941,
+        "lng": 2.2957
+    },
+    {
+        "id": 90,
+        "event": "Mort de Charles le Téméraire",
+        "date": "1477",
+        "city": "Nancy",
+        "description": "Ville devant les murs de laquelle le puissant duc de Bourgogne trouva la mort.",
+        "lat": 48.6921,
+        "lng": 6.1844
+    },
+    {
+        "id": 91,
+        "event": "Abdication de Napoléon",
+        "date": "1814",
+        "city": "Fontainebleau",
+        "description": "Château où Napoléon Ier signa son abdication et fit ses adieux à la Garde impériale.",
+        "lat": 48.4047,
+        "lng": 2.7016
+    },
+    {
+        "id": 92,
+        "event": "Cité Corsaire",
+        "date": "XVIIe siècle",
+        "city": "Saint-Malo",
+        "description": "Ville fortifiée par Vauban, célèbre pour ses corsaires comme Surcouf et Duguay-Trouin.",
+        "lat": 48.6481,
+        "lng": -2.0075
+    },
+    {
+        "id": 93,
+        "event": "Foires de Champagne",
+        "date": "Moyen Âge",
+        "city": "Troyes",
+        "description": "Ville au cœur des grandes foires commerciales qui firent la richesse de la Champagne.",
+        "lat": 48.3,
+        "lng": 4.0833
+    },
+    {
+        "id": 94,
+        "event": "Capitale des Ducs de Bourgogne",
+        "date": "Moyen Âge",
+        "city": "Dijon",
+        "description": "Ville résidence des ducs de Bourgogne, grand foyer artistique et politique médiéval.",
+        "lat": 47.322,
+        "lng": 5.0415
+    },
+    {
+        "id": 95,
+        "event": "Révolte des Canuts",
+        "date": "1831",
+        "city": "Lyon",
+        "description": "Première grande insurrection sociale ouvrière de l'ère industrielle par les tisserands de soie.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 96,
+        "event": "Arsenal de R.......",
+        "date": "XVIIe siècle",
+        "city": "Rochefort",
+        "description": "Ville nouvelle créée par Colbert pour devenir un arsenal maritime et construire la flotte du Roi-Soleil.",
+        "lat": 45.9421,
+        "lng": -0.9588
+    },
+    {
+        "id": 99,
+        "event": "Port Militaire",
+        "date": "XIXe siècle",
+        "city": "Cherbourg-en-Cotentin",
+        "description": "Ville dotée de la plus grande rade artificielle du monde, immense ouvrage militaire.",
+        "lat": 49.639,
+        "lng": -1.625
+    },
+    {
+        "id": 101,
+        "event": "Imprimerie Royale",
+        "date": "1538",
+        "city": "Paris",
+        "description": "Ville où François Ier nomma le premier imprimeur du roi, ancêtre de l'Imprimerie nationale.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 102,
+        "event": "Port de la Lune",
+        "date": "XVIIIe siècle",
+        "city": "Bordeaux",
+        "description": "Ville dont le port classé à l'UNESCO fut le cœur du commerce atlantique et du vin.",
+        "lat": 44.8378,
+        "lng": -0.5792
+    },
+    {
+        "id": 103,
+        "event": "Université de Droit",
+        "date": "1306",
+        "city": "Orléans",
+        "description": "Ville universitaire réputée où étudièrent Molière et Calvin, spécialisée en droit romain.",
+        "lat": 47.9029,
+        "lng": 1.9092
+    },
+    {
+        "id": 104,
+        "event": "Concile d'A.....",
+        "date": "IXe siècle",
+        "city": "Auxerre",
+        "description": "Ville hôte d'un synode important pour l'église locale en Bourgogne.",
+        "lat": 47.7986,
+        "lng": 3.5672
+    },
+    {
+        "id": 105,
+        "event": "Reine des Citadelles",
+        "date": "XVIIe siècle",
+        "city": "Lille",
+        "description": "Ville fortifiée par Vauban avec une citadelle en étoile considérée comme son chef-d'œuvre.",
+        "lat": 50.6292,
+        "lng": 3.0573
+    },
+    {
+        "id": 106,
+        "event": "Résistance Protestante",
+        "date": "1621",
+        "city": "Montauban",
+        "description": "Ville qui résista victorieusement au siège de Louis XIII lors des rébellions huguenotes.",
+        "lat": 44.0181,
+        "lng": 1.3558
+    },
+    {
+        "id": 107,
+        "event": "Première Cathédrale Gothique",
+        "date": "XIIe siècle",
+        "city": "Sens",
+        "description": "Ville abritant la cathédrale Saint-Étienne, considérée comme la première du style gothique.",
+        "lat": 48.2,
+        "lng": 3.2833
+    },
+    {
+        "id": 108,
+        "event": "Corderie Royale",
+        "date": "1666",
+        "city": "Rochefort",
+        "description": "Ville abritant la célèbre manufacture de cordages pour la marine royale, la plus longue d'Europe.",
+        "lat": 45.9421,
+        "lng": -0.9588
+    },
+    {
+        "id": 109,
+        "event": "Désastre de S.....",
+        "date": "1870",
+        "city": "Sedan",
+        "description": "Lieu de la capitulation de Napoléon III face aux Prussiens, entraînant la chute du Second Empire.",
+        "lat": 49.7,
+        "lng": 4.95
+    },
+    {
+        "id": 110,
+        "event": "Amphithéâtre Romain",
+        "date": "Ier siècle",
+        "city": "Nîmes",
+        "description": "Ville possédant des arènes romaines parmi les mieux conservées au monde.",
+        "lat": 43.8367,
+        "lng": 4.3601
+    },
+    {
+        "id": 111,
+        "event": "Bassin Minier",
+        "date": "XIXe siècle",
+        "city": "Lens",
+        "description": "Ville au cœur de l'exploitation charbonnière du Nord-Pas-de-Calais.",
+        "lat": 50.4322,
+        "lng": 2.8333
+    },
+    {
+        "id": 112,
+        "event": "Proclamation de la République",
+        "date": "1848",
+        "city": "Paris",
+        "description": "Ville où Lamartine proclama la IIe République à l'Hôtel de Ville.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 114,
+        "event": "Siège d'A....",
+        "date": "1640",
+        "city": "Arras",
+        "description": "Ville reprise aux Espagnols par les troupes de Louis XIII après un siège difficile.",
+        "lat": 50.292,
+        "lng": 2.78
+    },
+    {
+        "id": 116,
+        "event": "Royaume d'A.....",
+        "date": "Xe siècle",
+        "city": "Arles",
+        "description": "Ancienne capitale d'un royaume couvrant la Provence et la Bourgogne jurane.",
+        "lat": 43.6767,
+        "lng": 4.6278
+    },
+    {
+        "id": 117,
+        "event": "Manufacture des Rames",
+        "date": "1665",
+        "city": "Abbeville",
+        "description": "Ville où Colbert fonda une manufacture royale de draps fins (Van Robais).",
+        "lat": 50.1055,
+        "lng": 1.8368
+    },
+    {
+        "id": 118,
+        "event": "Débarquement de Provence",
+        "date": "Août 1944",
+        "city": "Saint-Raphaël",
+        "description": "Ville située dans la zone du débarquement allié (Opération Dragoon) sur la côte méditerranéenne.",
+        "lat": 43.4252,
+        "lng": 6.7684
+    },
+    {
+        "id": 120,
+        "event": "Adieux de F............",
+        "date": "1814",
+        "city": "Fontainebleau",
+        "description": "Lieu de la célèbre scène des adieux de Napoléon à sa Garde dans la cour du Cheval Blanc.",
+        "lat": 48.4047,
+        "lng": 2.7016
+    },
+    {
+        "id": 121,
+        "event": "Commerce Triangulaire",
+        "date": "XVIIIe siècle",
+        "city": "La Rochelle",
+        "description": "Ville portuaire majeure du commerce atlantique et de la traite négrière.",
+        "lat": 46.1603,
+        "lng": -1.1511
+    },
+    {
+        "id": 122,
+        "event": "Place Forte de l'Est",
+        "date": "XIXe siècle",
+        "city": "Metz",
+        "description": "Ville fortifiée devenue allemande en 1871 puis redevenue française en 1918.",
+        "lat": 49.1193,
+        "lng": 6.1757
+    },
+    {
+        "id": 123,
+        "event": "Sorbonne",
+        "date": "1253",
+        "city": "Paris",
+        "description": "Ville abritant le célèbre collège fondé par Robert de Sorbon pour les étudiants en théologie.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 125,
+        "event": "Port du Levant",
+        "date": "XVIIe siècle",
+        "city": "Toulon",
+        "description": "Base navale stratégique développée par Richelieu et Louis XIV face à l'Espagne et l'Italie.",
+        "lat": 43.1242,
+        "lng": 5.928
+    },
+    {
+        "id": 126,
+        "event": "Bleu de C.......",
+        "date": "Moyen Âge",
+        "city": "Chartres",
+        "description": "Ville célèbre pour le bleu unique des vitraux de sa cathédrale Notre-Dame.",
+        "lat": 48.4469,
+        "lng": 1.4893
+    },
+    {
+        "id": 127,
+        "event": "Capitale de la Soie",
+        "date": "XIXe siècle",
+        "city": "Lyon",
+        "description": "Ville dominant le marché mondial de la soie grâce au métier Jacquard.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 128,
+        "event": "Paix des Pyrénées",
+        "date": "1659",
+        "city": "Saint-Jean-de-Luz",
+        "description": "Ville frontalière scellant la paix entre la France et l'Espagne.",
+        "lat": 43.39,
+        "lng": -1.66
+    },
+    {
+        "id": 129,
+        "event": "Bataille de P......",
+        "date": "1356",
+        "city": "Poitiers",
+        "description": "Défaite française où le roi Jean II le Bon fut capturé par les Anglais (Prince Noir).",
+        "lat": 46.5826,
+        "lng": 0.3435
+    },
+    {
+        "id": 130,
+        "event": "Abbaye de C.....",
+        "date": "910",
+        "city": "Cluny",
+        "description": "Siège du plus grand ordre monastique médiéval d'Occident, rayonnant sur toute l'Europe.",
+        "lat": 46.4332,
+        "lng": 4.6585
+    },
+    {
+        "id": 131,
+        "event": "École Militaire",
+        "date": "1750",
+        "city": "Paris",
+        "description": "Institution fondée par Louis XV et la Pompadour pour former les officiers (dont Napoléon).",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 132,
+        "event": "Corsaire Jean Bart",
+        "date": "XVIIe siècle",
+        "city": "Dunkerque",
+        "description": "Ville portuaire imprenable, patrie du célèbre corsaire Jean Bart.",
+        "lat": 51.033,
+        "lng": 2.377
+    },
+    {
+        "id": 133,
+        "event": "Procès de Louis XVI",
+        "date": "1792-1793",
+        "city": "Paris",
+        "description": "Ville où le roi fut jugé par la Convention nationale.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 134,
+        "event": "Faïence de N.....",
+        "date": "XVIe siècle",
+        "city": "Nevers",
+        "description": "Ville réputée pour sa production de faïence de grand feu, introduite par des artistes italiens.",
+        "lat": 46.9896,
+        "lng": 3.159
+    },
+    {
+        "id": 135,
+        "event": "Aliénor d'Aquitaine",
+        "date": "XIIe siècle",
+        "city": "Poitiers",
+        "description": "Ville résidence de la duchesse d'Aquitaine et reine, qui y tint une cour brillante.",
+        "lat": 46.5826,
+        "lng": 0.3435
+    },
+    {
+        "id": 136,
+        "event": "Siège de L....",
+        "date": "1793",
+        "city": "Lyon",
+        "description": "Ville assiégée et bombardée par les armées révolutionnaires pour s'être rebellée contre la Convention.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 137,
+        "event": "Rencontre de C....",
+        "date": "1429",
+        "city": "Chinon",
+        "description": "Forteresse où Jeanne d'Arc reconnut le futur Charles VII et le convainquit de sa mission.",
+        "lat": 47.1667,
+        "lng": 0.25
+    },
+    {
+        "id": 138,
+        "event": "Capitale Impériale",
+        "date": "IVe siècle",
+        "city": "Trèves",
+        "description": "Ancienne capitale de l'Empire romain d'Occident (aujourd'hui en Allemagne, mais historiquement liée à la Gaule).",
+        "lat": 49.7557,
+        "lng": 6.6394
+    },
+    {
+        "id": 139,
+        "event": "Cité Épiscopale",
+        "date": "XIIIe siècle",
+        "city": "Albi",
+        "description": "Ville de brique rouge, siège de la lutte contre l'hérésie cathare (Cathédrale Sainte-Cécile).",
+        "lat": 43.9298,
+        "lng": 2.148
+    },
+    {
+        "id": 140,
+        "event": "Traité de P....",
+        "date": "1814/1815",
+        "city": "Paris",
+        "description": "Lieu de signature des traités rétablissant la paix en Europe après les guerres napoléoniennes.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 141,
+        "event": "A..... Romaine",
+        "date": "Antiquité",
+        "city": "Arles",
+        "description": "Surnommée la 'petite Rome des Gaules', carrefour fluvial et maritime majeur.",
+        "lat": 43.6767,
+        "lng": 4.6278
+    },
+    {
+        "id": 142,
+        "event": "Manufacture d'Armes",
+        "date": "XIXe siècle",
+        "city": "Tulle",
+        "description": "Ville célèbre pour sa manufacture royale d'armes à feu (MAT).",
+        "lat": 45.2678,
+        "lng": 1.7706
+    },
+    {
+        "id": 143,
+        "event": "Aéropostale",
+        "date": "XXe siècle",
+        "city": "Toulouse",
+        "description": "Ville pionnière de l'aviation civile et point de départ des lignes vers l'Amérique du Sud.",
+        "lat": 43.6047,
+        "lng": 1.4442
+    },
+    {
+        "id": 144,
+        "event": "Montagne Couronnée",
+        "date": "XIIe siècle",
+        "city": "Laon",
+        "description": "Ville perchée célèbre pour sa cathédrale aux tours ornées de bœufs de pierre.",
+        "lat": 49.5639,
+        "lng": 3.6244
+    },
+    {
+        "id": 145,
+        "event": "Capitale de Normandie",
+        "date": "Xe siècle",
+        "city": "Rouen",
+        "description": "Ville résidence des ducs de Normandie, dont Rollon.",
+        "lat": 49.4432,
+        "lng": 1.0999
+    },
+    {
+        "id": 146,
+        "event": "Inquisition",
+        "date": "XIIIe siècle",
+        "city": "Toulouse",
+        "description": "Ville où fut établi le premier tribunal de l'Inquisition pour lutter contre les cathares.",
+        "lat": 43.6047,
+        "lng": 1.4442
+    },
+    {
+        "id": 147,
+        "event": "Assassinat du Duc de Guise",
+        "date": "1588",
+        "city": "Blois",
+        "description": "Château royal où Henri III fit assassiner son rival, le duc de Guise.",
+        "lat": 47.5939,
+        "lng": 1.3281
+    },
+    {
+        "id": 148,
+        "event": "Bourse de P....",
+        "date": "1724",
+        "city": "Paris",
+        "description": "Ville où fut officiellement créée la Bourse de commerce.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 149,
+        "event": "Port du Vin",
+        "date": "Moyen Âge",
+        "city": "Bordeaux",
+        "description": "Ville dont la prospérité fut liée au commerce du vin vers l'Angleterre.",
+        "lat": 44.8378,
+        "lng": -0.5792
+    },
+    {
+        "id": 150,
+        "event": "Bataille de C.....",
+        "date": "1793",
+        "city": "Cholet",
+        "description": "Affrontement décisif des guerres de Vendée.",
+        "lat": 47.0594,
+        "lng": -0.8798
+    },
+    {
+        "id": 151,
+        "event": "Grand Argentier",
+        "date": "XVe siècle",
+        "city": "Bourges",
+        "description": "Ville natale de Jacques Cœur, riche marchand et argentier de Charles VII.",
+        "lat": 47.0844,
+        "lng": 2.3964
+    },
+    {
+        "id": 152,
+        "event": "Cathédrale de R.....",
+        "date": "Gothique",
+        "city": "Rouen",
+        "description": "Ville dont la cathédrale possède la plus haute flèche de France (151m), peinte par Monet.",
+        "lat": 49.4432,
+        "lng": 1.0999
+    },
+    {
+        "id": 153,
+        "event": "Rade de C.......",
+        "date": "XIXe siècle",
+        "city": "Cherbourg-en-Cotentin",
+        "description": "Port doté d'une immense digue construite en mer, visitée par Napoléon III.",
+        "lat": 49.639,
+        "lng": -1.625
+    },
+    {
+        "id": 154,
+        "event": "Augustodunum",
+        "date": "Antiquité",
+        "city": "Autun",
+        "description": "Ville fondée par l'empereur Auguste pour être une 'sœur de Rome' en Gaule.",
+        "lat": 46.9517,
+        "lng": 4.2994
+    },
+    {
+        "id": 155,
+        "event": "Insurrection Fédéraliste",
+        "date": "1793",
+        "city": "Marseille",
+        "description": "Ville qui se souleva contre la Convention montagnarde, entraînant une répression sévère.",
+        "lat": 43.2965,
+        "lng": 5.3698
+    },
+    {
+        "id": 156,
+        "event": "Cité Vauban",
+        "date": "XVIIe siècle",
+        "city": "Briançon",
+        "description": "Plus haute ville fortifiée d'Europe, verrouillant les cols alpins.",
+        "lat": 44.8964,
+        "lng": 6.6356
+    },
+    {
+        "id": 157,
+        "event": "Départ de Saint-Jacques",
+        "date": "Moyen Âge",
+        "city": "Le Puy-en-Velay",
+        "description": "Point de départ de la Via Podiensis, l'un des principaux chemins de Compostelle.",
+        "lat": 45.0437,
+        "lng": 3.8852
+    },
+    {
+        "id": 158,
+        "event": "S.....-N..... Atlantique",
+        "date": "XIXe siècle",
+        "city": "Saint-Nazaire",
+        "description": "Port transatlantique développé pour relier la France aux Amériques (paquebots).",
+        "lat": 47.2833,
+        "lng": -2.2
+    },
+    {
+        "id": 159,
+        "event": "Tapisserie d'A......",
+        "date": "XVIe siècle",
+        "city": "Aubusson",
+        "description": "Capitale mondiale de la tapisserie, classée au patrimoine immatériel de l'UNESCO.",
+        "lat": 45.957,
+        "lng": 2.1683
+    },
+    {
+        "id": 160,
+        "event": "Capitale de la Préhistoire",
+        "date": "Paléolithique",
+        "city": "Les Eyzies-de-Tayac",
+        "description": "Lieu de découverte de l'homme de Cro-Magnon et centre de la vallée de la Vézère.",
+        "lat": 44.93,
+        "lng": 1.0299
+    },
+    {
+        "id": 161,
+        "event": "Congrès de T.....",
+        "date": "1920",
+        "city": "Tours",
+        "description": "Lieu de la scission de la SFIO qui donna naissance au Parti communiste français.",
+        "lat": 47.3941,
+        "lng": 0.6848
+    },
+    {
+        "id": 162,
+        "event": "Métropole horlogère",
+        "date": "XIXe siècle",
+        "city": "Besançon",
+        "description": "Capitale française de l'horlogerie d'art et de précision.",
+        "lat": 47.2488,
+        "lng": 6.0182
+    },
+    {
+        "id": 163,
+        "event": "Usines Peugeot",
+        "date": "1912",
+        "city": "Sochaux",
+        "description": "Berceau historique et immense site industriel de la marque automobile Peugeot.",
+        "lat": 47.514,
+        "lng": 6.831
+    },
+    {
+        "id": 164,
+        "event": "Capitale de la Résistance",
+        "date": "1940-1944",
+        "city": "Lyon",
+        "description": "Ville centre des mouvements de Résistance (Jean Moulin) grâce à ses traboules.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 165,
+        "event": "Alignements de C.....",
+        "date": "Néolithique",
+        "city": "Carnac",
+        "description": "Site mondialement connu pour ses milliers de menhirs alignés.",
+        "lat": 47.5835,
+        "lng": -3.0788
+    },
+    {
+        "id": 166,
+        "event": "Chantiers de l'Atlantique",
+        "date": "XXe siècle",
+        "city": "Saint-Nazaire",
+        "description": "Lieu de construction des plus grands paquebots du monde (Normandie, Queen Mary 2).",
+        "lat": 47.2833,
+        "lng": -2.2
+    },
+    {
+        "id": 167,
+        "event": "Capitale des Flandres",
+        "date": "Moyen Âge",
+        "city": "Lille",
+        "description": "Ville marchande prospère disputée entre France, Bourgogne et Espagne.",
+        "lat": 50.6292,
+        "lng": 3.0573
+    },
+    {
+        "id": 168,
+        "event": "Paix d'A....",
+        "date": "1629",
+        "city": "Alès",
+        "description": "Lieu de la signature de la 'Paix de Grâce' par Louis XIII, fin des guerres de religion.",
+        "lat": 44.126,
+        "lng": 4.0765
+    },
+    {
+        "id": 169,
+        "event": "Régime de V.....",
+        "date": "1940-1944",
+        "city": "Vichy",
+        "description": "Siège du gouvernement de l'État français dirigé par le maréchal Pétain.",
+        "lat": 46.1167,
+        "lng": 3.4167
+    },
+    {
+        "id": 170,
+        "event": "Capitale de la Chaussure",
+        "date": "XIXe siècle",
+        "city": "Romans-sur-Isère",
+        "description": "Ville renommée pour son industrie et son musée de la chaussure.",
+        "lat": 45.0464,
+        "lng": 5.0562
+    },
+    {
+        "id": 171,
+        "event": "Reconquête de T......",
+        "date": "1793",
+        "city": "Toulon",
+        "description": "Première grande victoire militaire du jeune Bonaparte face aux Anglais.",
+        "lat": 43.1242,
+        "lng": 5.928
+    },
+    {
+        "id": 172,
+        "event": "Forum Julii",
+        "date": "Antiquité",
+        "city": "Fréjus",
+        "description": "Port militaire romain fondé par Jules César pour rivaliser avec Marseille.",
+        "lat": 43.433,
+        "lng": 6.737
+    },
+    {
+        "id": 173,
+        "event": "Foire de B........",
+        "date": "Moyen Âge",
+        "city": "Beaucaire",
+        "description": "Ville accueillant une foire internationale majeure en Europe au Moyen Âge.",
+        "lat": 43.8081,
+        "lng": 4.6442
+    },
+    {
+        "id": 174,
+        "event": "Imprimerie L.....",
+        "date": "Renaissance",
+        "city": "Lyon",
+        "description": "Centre européen majeur de l'édition et de l'humanisme au XVIe siècle.",
+        "lat": 45.764,
+        "lng": 4.8357
+    },
+    {
+        "id": 175,
+        "event": "Vase de S......",
+        "date": "486",
+        "city": "Soissons",
+        "description": "Ville associée à la célèbre anecdote de Clovis brisant un vase après une bataille.",
+        "lat": 49.3817,
+        "lng": 3.3236
+    },
+    {
+        "id": 176,
+        "event": "Base de Kéroman",
+        "date": "1941",
+        "city": "Lorient",
+        "description": "Ville abritant la plus grande base de sous-marins allemands (U-Boots) de l'Atlantique.",
+        "lat": 47.7483,
+        "lng": -3.3702
+    },
+    {
+        "id": 178,
+        "event": "Nemausus",
+        "date": "Antiquité",
+        "city": "Nîmes",
+        "description": "Ville romaine importante située sur la Via Domitia.",
+        "lat": 43.8367,
+        "lng": 4.3601
+    },
+    {
+        "id": 179,
+        "event": "Remparts de B......",
+        "date": "XVIIIe siècle",
+        "city": "Briançon",
+        "description": "Ensemble fortifié spectaculaire de Vauban pour défendre les Alpes.",
+        "lat": 44.8964,
+        "lng": 6.6356
+    },
+    {
+        "id": 180,
+        "event": "Haute Banque",
+        "date": "XIXe siècle",
+        "city": "Paris",
+        "description": "Ville centre de la finance européenne (Rothschild, Pereire).",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 181,
+        "event": "Narbo Martius",
+        "date": "Antiquité",
+        "city": "Narbonne",
+        "description": "Première colonie romaine fondée en Gaule (-118).",
+        "lat": 43.1843,
+        "lng": 3.0031
+    },
+    {
+        "id": 182,
+        "event": "Exposition Coloniale",
+        "date": "1931",
+        "city": "Paris",
+        "description": "Grande manifestation à la Porte Dorée célébrant l'Empire colonial français.",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "id": 183,
+        "event": "Bataille de Saint-Privat",
+        "date": "1870",
+        "city": "Metz",
+        "description": "Bataille sanglante aux portes de M... lors de la guerre franco-prussienne.",
+        "lat": 49.1193,
+        "lng": 6.1757
+    },
+    {
+        "id": 184,
+        "event": "Lugdunum Convenarum",
+        "date": "Antiquité",
+        "city": "Saint-Bertrand-de-Comminges",
+        "description": "Site antique majeur au pied des Pyrénées avec des thermes et un théâtre.",
+        "lat": 43.0266,
+        "lng": 0.5709
+    },
+    {
+        "id": 185,
+        "event": "Airbus",
+        "date": "XXe siècle",
+        "city": "Toulouse",
+        "description": "Siège mondial du constructeur aéronautique européen.",
+        "lat": 43.6047,
+        "lng": 1.4442
+    },
+    {
+        "id": 186,
+        "event": "Château d'A.....",
+        "date": "Moyen Âge",
+        "city": "Angers",
+        "description": "Forteresse aux 17 tours abritant la Tenture de l'Apocalypse.",
+        "lat": 47.4784,
+        "lng": -0.5632
+    },
+    {
+        "id": 187,
+        "event": "Grèves de C......",
+        "date": "1892",
+        "city": "Carmaux",
+        "description": "Conflit social emblématique soutenu par Jean Jaurès.",
+        "lat": 44.051,
+        "lng": 2.158
+    },
+    {
+        "id": 188,
+        "event": "Vierge du P...",
+        "date": "Moyen Âge",
+        "city": "Le Puy-en-Velay",
+        "description": "Sanctuaire marial vénéré depuis le Moyen Âge.",
+        "lat": 45.0437,
+        "lng": 3.8852
+    },
+    {
+        "id": 189,
+        "event": "Complexe de F...",
+        "date": "XXe siècle",
+        "city": "Fos-sur-Mer",
+        "description": "Création d'un gigantesque port industriel et pétrolier près de Marseille.",
+        "lat": 43.4377,
+        "lng": 4.9446
+    },
+    {
+        "id": 190,
+        "event": "Reddition de 1945",
+        "date": "7 mai 1945",
+        "city": "Reims",
+        "description": "Signature de l'acte de capitulation de l'Allemagne nazie au musée de la Reddition.",
+        "lat": 49.2583,
+        "lng": 4.0317
+    }
+]
