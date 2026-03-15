@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { MapContainer, TileLayer, GeoJSON, useMap, Marker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import capitalsData from '../data/capitals.json';
 import worldGeoJSON from '../data/world.geo.json';
-import { calculateTimeMultiplier } from '../utils/gameUtils';
+import { shuffleArray, calculateTimeMultiplier } from '../utils/gameUtils';
+import { useTimer } from '../hooks/useTimer';
 import ScoreBoard from './ScoreBoard';
 import Leaderboard from './Leaderboard';
+import { ROUNDS_PER_GAME, TIME_LIMITS, FLAG_BONUS } from '../utils/constants';
 
-// Helper to center map
 const MapEffect = ({ bounds }) => {
     const map = useMap();
     useEffect(() => {
@@ -19,23 +20,17 @@ const MapEffect = ({ bounds }) => {
     return null;
 };
 
-// --- Sub-components ---
-
 const FlagQuiz = ({ targetCountry, onAnswer, onJoker, jokerUsed }) => {
     const [options, setOptions] = useState([]);
-    const [disabledOptions, setDisabledOptions] = useState([]); // For Joker
-    const [step, setStep] = useState('choose'); // choose, feedback (immediate border), outcome handled by parent? 
-    // Actually parent handles 'outcome' via onAnswer, but we need visual feedback first.
+    const [disabledOptions, setDisabledOptions] = useState([]);
+    const [step, setStep] = useState('choose');
     const [userChoiceIso, setUserChoiceIso] = useState(null);
 
     useEffect(() => {
-        // Generate options: Target + 3 Distractors
-        const distractors = capitalsData
-            .filter(c => c.iso !== targetCountry.iso)
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 3);
-
-        const allOptions = [targetCountry, ...distractors].sort(() => 0.5 - Math.random());
+        const distractors = shuffleArray(
+            capitalsData.filter(c => c.iso !== targetCountry.iso)
+        ).slice(0, 3);
+        const allOptions = shuffleArray([targetCountry, ...distractors]);
         setOptions(allOptions);
     }, [targetCountry]);
 
@@ -49,11 +44,8 @@ const FlagQuiz = ({ targetCountry, onAnswer, onJoker, jokerUsed }) => {
 
     const handleSelect = (iso) => {
         if (step !== 'choose' || disabledOptions.includes(iso)) return;
-
         setUserChoiceIso(iso);
-        setStep('feedback'); // Show border colors
-
-        // Wait 1s and pass to parent
+        setStep('feedback');
         setTimeout(() => {
             onAnswer(iso);
         }, 1000);
@@ -73,25 +65,25 @@ const FlagQuiz = ({ targetCountry, onAnswer, onJoker, jokerUsed }) => {
 
                         let cardStyle = {
                             width: '100%',
-                            height: '140px', // Fixed height
+                            height: '140px',
                             borderRadius: '12px',
                             cursor: (step === 'choose' && !isDisabled) ? 'pointer' : 'default',
                             boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                             border: '4px solid transparent',
                             transition: 'all 0.3s',
                             opacity: isDisabled ? 0.1 : 1,
-                            objectFit: 'contain', // No cutting off
+                            objectFit: 'contain',
                             backgroundColor: '#f8fafc'
                         };
 
                         if (step === 'feedback') {
                             if (isCorrect) {
-                                cardStyle.border = '4px solid #22c55e'; // Green
+                                cardStyle.border = '4px solid #22c55e';
                                 cardStyle.transform = 'scale(1.05)';
                                 cardStyle.boxShadow = '0 0 20px #22c55e';
                                 cardStyle.zIndex = 10;
                             } else if (isSelected) {
-                                cardStyle.border = '4px solid #ef4444'; // Red
+                                cardStyle.border = '4px solid #ef4444';
                                 cardStyle.opacity = 0.8;
                             } else {
                                 cardStyle.opacity = 0.5;
@@ -103,11 +95,11 @@ const FlagQuiz = ({ targetCountry, onAnswer, onJoker, jokerUsed }) => {
                                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                                     <img
                                         src={`https://flagcdn.com/w640/${opt.iso}.png`}
+                                        alt={`Option ${i + 1}`}
                                         className={step === 'choose' && !isDisabled ? "flag-option hover:scale-105" : ""}
                                         style={cardStyle}
                                         onClick={() => handleSelect(opt.iso)}
                                     />
-                                    {/* IMMEDIATE FEEDBACK ICON OVERLAY */}
                                     {step === 'feedback' && isCorrect && (
                                         <div className="absolute-cover flex-center" style={{ background: 'rgba(34, 197, 94, 0.4)', borderRadius: '12px', pointerEvents: 'none' }}>
                                             <span style={{ fontSize: '3rem', color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>✅</span>
@@ -143,7 +135,7 @@ const FlagQuiz = ({ targetCountry, onAnswer, onJoker, jokerUsed }) => {
 
 const RoundFeedback = ({ mapResult, flagResult, targetCountry, onNext }) => {
     useEffect(() => {
-        const timer = setTimeout(onNext, 4000); // Auto next after 4s
+        const timer = setTimeout(onNext, 4000);
         return () => clearTimeout(timer);
     }, [onNext]);
 
@@ -177,53 +169,42 @@ const RoundFeedback = ({ mapResult, flagResult, targetCountry, onNext }) => {
                     <h2 className="text-4xl font-black text-white mb-4">{targetCountry.country}</h2>
                     <img
                         src={`https://flagcdn.com/w640/${targetCountry.iso}.png`}
+                        alt={`Drapeau de ${targetCountry.country}`}
                         className="w-48 mx-auto rounded-lg shadow-lg border-2 border-white/50"
                     />
                 </div>
             </div>
         </div>
     );
-}
-
+};
 
 const CountriesGame = ({ onExit }) => {
-    // States
-    const [gameStatus, setGameStatus] = useState('intro'); // intro, playing_map, feedback_map, playing_flag, feedback_round, summary
+    const [gameStatus, setGameStatus] = useState('intro');
     const [rounds, setRounds] = useState([]);
     const [currentRoundIndex, setCurrentRoundIndex] = useState(0);
     const [score, setScore] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(15);
-    const [selectedIso, setSelectedIso] = useState(null); // New state for selection
-
-    // Data
+    const [selectedIso, setSelectedIso] = useState(null);
     const [geoJsonData, setGeoJsonData] = useState(null);
-
-    // Round State
-    const [mapResult, setMapResult] = useState(null); // { outcome, points, clickedPos, clickedIso }
-    const [flagResult, setFlagResult] = useState(null); // { outcome, points }
+    const [mapResult, setMapResult] = useState(null);
+    const [flagResult, setFlagResult] = useState(null);
     const [jokerUsed, setJokerUsed] = useState(false);
 
-    const ROUNDS_PER_GAME = 20;
-
-    // Load FULL GeoJSON
     useEffect(() => {
-        // We load ALL countries so user cannot guess by greyed out areas
         setGeoJsonData(worldGeoJSON);
     }, []);
 
-    // Timer Logic for Map Phase
-    useEffect(() => {
-        let timer;
-        if (gameStatus === 'playing_map' && timeLeft > 0) {
-            timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
-        } else if (timeLeft === 0 && gameStatus === 'playing_map') {
-            // Timeout on map = Wrong
-            handleConfirmTimeout();
+    const handleTimeout = useCallback(() => {
+        if (gameStatus === 'playing_map') {
+            submitResult(null);
         }
-        return () => clearInterval(timer);
-    }, [gameStatus, timeLeft]);
+    }, [gameStatus]);
 
-    // Timer Logic for Map Feedback Delay (4s)
+    const { timeLeft, resetTimer } = useTimer(
+        TIME_LIMITS.countries,
+        gameStatus === 'playing_map',
+        handleTimeout
+    );
+
     useEffect(() => {
         let timer;
         if (gameStatus === 'feedback_map') {
@@ -234,14 +215,12 @@ const CountriesGame = ({ onExit }) => {
         return () => clearTimeout(timer);
     }, [gameStatus]);
 
-
     const startGame = () => {
-        const shuffled = [...capitalsData].sort(() => 0.5 - Math.random());
+        const shuffled = shuffleArray([...capitalsData]);
         setRounds(shuffled.slice(0, ROUNDS_PER_GAME));
         setCurrentRoundIndex(0);
         setScore(0);
         setGameStatus('playing_map');
-        setTimeLeft(15);
         resetRound();
     };
 
@@ -250,7 +229,7 @@ const CountriesGame = ({ onExit }) => {
         setFlagResult(null);
         setJokerUsed(false);
         setSelectedIso(null);
-        setTimeLeft(15);
+        resetTimer(TIME_LIMITS.countries);
     };
 
     const handleCountryClick = (feature, layer, latlng) => {
@@ -266,40 +245,32 @@ const CountriesGame = ({ onExit }) => {
         submitResult(selectedIso);
     };
 
-    const handleConfirmTimeout = () => {
-        submitResult(null); // Timeout
-    };
-
     const submitResult = (finalIso) => {
         const target = rounds[currentRoundIndex];
         const isCorrect = finalIso === target.iso.toLowerCase();
-
         const points = isCorrect ? calculateTimeMultiplier(1000, timeLeft) : 0;
 
         setScore(s => s + points);
         setMapResult({
             outcome: isCorrect ? 'correct' : 'wrong',
-            points: points,
+            points,
             clickedIso: finalIso,
-            clickedPos: null, // No specific click pos needed for polygon highlight
+            clickedPos: null,
             correctIso: target.iso
         });
-
-        // Show Map Feedback (Glows/Markers)
         setGameStatus('feedback_map');
     };
 
-    const handleFlagAnswer = (selectedIso) => {
+    const handleFlagAnswer = (selectedFlagIso) => {
         const target = rounds[currentRoundIndex];
-        const isCorrect = selectedIso === target.iso;
-        const points = isCorrect ? 500 : 0;
+        const isCorrect = selectedFlagIso === target.iso;
+        const points = isCorrect ? FLAG_BONUS : 0;
 
         setScore(s => s + points);
         setFlagResult({
             outcome: isCorrect ? 'correct' : 'wrong',
-            points: points
+            points
         });
-
         setGameStatus('feedback_round');
     };
 
@@ -313,49 +284,34 @@ const CountriesGame = ({ onExit }) => {
         }
     };
 
-    // GeoJSON Style
     const style = (feature) => {
-        // UNIFORM COLOR for proper gameplay
         const iso = feature.properties['ISO3166-1-Alpha-2']?.toLowerCase();
-
-        let fillColor = '#1e293b'; // Default dark slate
+        let fillColor = '#1e293b';
         let className = "";
         let fillOpacity = 0.6;
         let weight = 1;
         let color = 'white';
 
-        // 1. Selection State (Before Feedback)
         if (gameStatus === 'playing_map' && selectedIso && iso === selectedIso) {
-            fillColor = '#3b82f6'; // Blue selection
+            fillColor = '#3b82f6';
             fillOpacity = 0.8;
             weight = 2;
             color = '#60a5fa';
         }
 
-        // 2. Feedback State
         if (gameStatus === 'feedback_map' && mapResult) {
             const targetIso = mapResult.correctIso.toLowerCase();
-
             if (iso === targetIso) {
-                // Always highlight correct country (Green)
                 className = "map-glow-green";
                 fillColor = '#22c55e';
                 fillOpacity = 0.9;
             } else if (mapResult.outcome === 'wrong' && iso === mapResult.clickedIso) {
-                // Highlight wrong guess (Red)
                 fillColor = '#ef4444';
                 fillOpacity = 0.9;
             }
         }
 
-        return {
-            fillColor,
-            weight,
-            opacity: 1,
-            color,
-            fillOpacity,
-            className
-        };
+        return { fillColor, weight, opacity: 1, color, fillOpacity, className };
     };
 
     const onEachFeature = (feature, layer) => {
@@ -369,23 +325,17 @@ const CountriesGame = ({ onExit }) => {
             },
             mouseout: (e) => {
                 if (gameStatus === 'playing_map') {
-                    // We rely on style() function to reset, but leaflet doesn't auto-call it on mouseout
-                    // So we manually reset to default look (simplification)
                     geoJsonLayer.current?.resetStyle(e.target);
                 }
             }
         });
     };
 
-    // Ref for resetting styles
     const geoJsonLayer = React.useRef();
 
     return (
         <div className="full-screen">
-            <button
-                className="btn-primary btn-menu"
-                onClick={onExit}
-            >
+            <button className="btn-primary btn-menu" onClick={onExit}>
                 🏠 Menu
             </button>
 
@@ -409,31 +359,16 @@ const CountriesGame = ({ onExit }) => {
                             />
                             {geoJsonData && (
                                 <GeoJSON
-                                    // Actually keeping key is safer for style updates if style prop doesn't auto-update deep
-                                    // Let's keep key for now but maybe rely on style update?
-                                    // If we change key, map resets zoom. BAD.
-                                    // Let's TRY removing key dependency on status if possible, or just rely on ref.
-                                    // Actually, standard react-leaflet GeoJSON doesn't update style dynamically well without key change or imperative ref usage.
-                                    // We are using `geoJsonLayer.current.resetStyle`.
-                                    // Let's keep key static per round, and rely on `setStyle`?
-                                    // Or just let it re-render. Re-render with same data is fast.
-                                    // Ideally key depends on selection? No.
-                                    // Let's stick to simple key: `geojson-round-${currentRoundIndex}`.
-                                    // And purely rely on React render cycle for style? 
-                                    // React-Leaflet GeoJSON 'style' prop IS dynamic if the component re-renders.
-                                    // So we just need to ensure the component re-renders. Parent state change (selectedIso) triggers re-render.
                                     key={`geojson-${currentRoundIndex}`}
                                     ref={geoJsonLayer}
                                     data={geoJsonData}
-                                    style={style} // This function uses state, so it should update.
+                                    style={style}
                                     onEachFeature={onEachFeature}
                                 />
                             )}
 
-                            {/* Markers during Feedback Map Phase */}
                             {gameStatus === 'feedback_map' && mapResult && (
                                 <>
-                                    {/* Cross for Wrong Answer */}
                                     {mapResult.outcome === 'wrong' && mapResult.clickedPos && (
                                         <Marker
                                             position={mapResult.clickedPos}
@@ -449,8 +384,6 @@ const CountriesGame = ({ onExit }) => {
                                             </Tooltip>
                                         </Marker>
                                     )}
-
-                                    {/* Pointer for Correct Answer (If wrong) */}
                                     {mapResult.outcome === 'wrong' && rounds[currentRoundIndex] && (
                                         <Marker
                                             position={[rounds[currentRoundIndex].lat, rounds[currentRoundIndex].lng]}
@@ -471,7 +404,6 @@ const CountriesGame = ({ onExit }) => {
                         </MapContainer>
                     </div>
 
-                    {/* CONFIRM BUTTON OVERLAY */}
                     {gameStatus === 'playing_map' && selectedIso && (
                         <div style={{
                             position: 'absolute',
@@ -496,18 +428,17 @@ const CountriesGame = ({ onExit }) => {
                         </div>
                     )}
 
-                    {/* HUD - Bottom Left */}
                     <ScoreBoard
                         score={score}
                         round={currentRoundIndex + 1}
                         totalRounds={ROUNDS_PER_GAME}
                         targetCity={{ name: rounds[currentRoundIndex]?.country }}
                         timer={gameStatus === 'playing_map' ? timeLeft : null}
+                        maxTime={TIME_LIMITS.countries}
                         lastResult={null}
                         containerClassName="hud-bottom-left"
                     />
 
-                    {/* Flag Quiz Overlay */}
                     {gameStatus === 'playing_flag' && (
                         <FlagQuiz
                             targetCountry={rounds[currentRoundIndex]}
@@ -517,7 +448,6 @@ const CountriesGame = ({ onExit }) => {
                         />
                     )}
 
-                    {/* Round Result Feedback */}
                     {gameStatus === 'feedback_round' && (
                         <RoundFeedback
                             mapResult={mapResult}

@@ -370,5 +370,233 @@
         "lat": 41.9272,
         "lng": 8.7346,
         "difficulty": 2
+    },
+    {
+        "name": "Calais",
+        "lat": 50.9513,
+        "lng": 1.8587,
+        "difficulty": 2
+    },
+    {
+        "name": "Cannes",
+        "lat": 43.5528,
+        "lng": 7.0174,
+        "difficulty": 2
+    },
+    {
+        "name": "Colmar",
+        "lat": 48.0794,
+        "lng": 7.3558,
+        "difficulty": 2
+    },
+    {
+        "name": "Troyes",
+        "lat": 48.2973,
+        "lng": 4.0744,
+        "difficulty": 2
+    },
+    {
+        "name": "Bourges",
+        "lat": 47.0810,
+        "lng": 2.3988,
+        "difficulty": 2
+    },
+    {
+        "name": "Chartres",
+        "lat": 48.4436,
+        "lng": 1.4899,
+        "difficulty": 2
+    },
+    {
+        "name": "Chambéry",
+        "lat": 45.5646,
+        "lng": 5.9178,
+        "difficulty": 2
+    },
+    {
+        "name": "Valence",
+        "lat": 44.9334,
+        "lng": 4.8924,
+        "difficulty": 2
+    },
+    {
+        "name": "Quimper",
+        "lat": 47.9960,
+        "lng": -4.1024,
+        "difficulty": 2
+    },
+    {
+        "name": "Lorient",
+        "lat": 47.7482,
+        "lng": -3.3702,
+        "difficulty": 2
+    },
+    {
+        "name": "Vannes",
+        "lat": 47.6584,
+        "lng": -2.7609,
+        "difficulty": 2
+    },
+    {
+        "name": "Saint-Brieuc",
+        "lat": 48.5141,
+        "lng": -2.7600,
+        "difficulty": 2
+    },
+    {
+        "name": "Niort",
+        "lat": 46.3230,
+        "lng": -0.4608,
+        "difficulty": 2
+    },
+    {
+        "name": "Angoulême",
+        "lat": 45.6500,
+        "lng": 0.1556,
+        "difficulty": 2
+    },
+    {
+        "name": "Bayonne",
+        "lat": 43.4929,
+        "lng": -1.4748,
+        "difficulty": 2
+    },
+    {
+        "name": "Biarritz",
+        "lat": 43.4832,
+        "lng": -1.5586,
+        "difficulty": 2
+    },
+    {
+        "name": "Tarbes",
+        "lat": 43.2333,
+        "lng": 0.0833,
+        "difficulty": 2
+    },
+    {
+        "name": "Albi",
+        "lat": 43.9298,
+        "lng": 2.1484,
+        "difficulty": 2
+    },
+    {
+        "name": "Carcassonne",
+        "lat": 43.2130,
+        "lng": 2.3491,
+        "difficulty": 2
+    },
+    {
+        "name": "Bastia",
+        "lat": 42.6970,
+        "lng": 9.4503,
+        "difficulty": 2
+    },
+    {
+        "name": "Arles",
+        "lat": 43.6767,
+        "lng": 4.6278,
+        "difficulty": 2
+    },
+    {
+        "name": "Laval",
+        "lat": 48.0733,
+        "lng": -0.7689,
+        "difficulty": 2
+    },
+    {
+        "name": "Auxerre",
+        "lat": 47.7979,
+        "lng": 3.5714,
+        "difficulty": 2
+    },
+    {
+        "name": "Blois",
+        "lat": 47.5861,
+        "lng": 1.3359,
+        "difficulty": 2
+    },
+    {
+        "name": "Évreux",
+        "lat": 49.0241,
+        "lng": 1.1508,
+        "difficulty": 2
+    },
+    {
+        "name": "Châteauroux",
+        "lat": 46.8103,
+        "lng": 1.6913,
+        "difficulty": 2
+    },
+    {
+        "name": "Saint-Nazaire",
+        "lat": 47.2733,
+        "lng": -2.2133,
+        "difficulty": 2
+    },
+    {
+        "name": "La Roche-sur-Yon",
+        "lat": 46.6706,
+        "lng": -1.4268,
+        "difficulty": 2
+    },
+    {
+        "name": "Cholet",
+        "lat": 47.0604,
+        "lng": -0.8782,
+        "difficulty": 2
+    },
+    {
+        "name": "Sète",
+        "lat": 43.4075,
+        "lng": 3.6968,
+        "difficulty": 2
+    },
+    {
+        "name": "Saint-Malo",
+        "lat": 48.6493,
+        "lng": -2.0007,
+        "difficulty": 2
+    },
+    {
+        "name": "Épinal",
+        "lat": 48.1744,
+        "lng": 6.4499,
+        "difficulty": 2
+    },
+    {
+        "name": "Agen",
+        "lat": 44.2033,
+        "lng": 0.6166,
+        "difficulty": 2
+    },
+    {
+        "name": "Bourg-en-Bresse",
+        "lat": 46.2056,
+        "lng": 5.2253,
+        "difficulty": 2
+    },
+    {
+        "name": "Montauban",
+        "lat": 44.0176,
+        "lng": 1.3558,
+        "difficulty": 2
+    },
+    {
+        "name": "Vichy",
+        "lat": 46.1266,
+        "lng": 3.4254,
+        "difficulty": 2
+    },
+    {
+        "name": "Gap",
+        "lat": 44.5594,
+        "lng": 6.0790,
+        "difficulty": 2
+    },
+    {
+        "name": "Rodez",
+        "lat": 44.3497,
+        "lng": 2.5753,
+        "difficulty": 2
     }
 ]

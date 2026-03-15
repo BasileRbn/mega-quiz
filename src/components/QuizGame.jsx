@@ -1,90 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Leaderboard from './Leaderboard';
 import characterData from '../data/characters.json';
-import { calculateTimeMultiplier } from '../utils/gameUtils';
+import { shuffleArray, calculateTimeMultiplier } from '../utils/gameUtils';
+import { useTimer } from '../hooks/useTimer';
+import { ROUNDS_PER_GAME, TIME_LIMITS } from '../utils/constants';
 
 const QuizGame = ({ onExit }) => {
-    const [gameStatus, setGameStatus] = useState('intro'); // intro, playing, summary
+    const [gameStatus, setGameStatus] = useState('intro');
     const [theme, setTheme] = useState(null);
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(15);
     const [jokerUsed, setJokerUsed] = useState(false);
-    const [feedback, setFeedback] = useState(null); // 'correct' or 'wrong'
+    const [feedback, setFeedback] = useState(null);
 
-    const ROUNDS = 20;
-
-    useEffect(() => {
-        let timer;
-        if (gameStatus === 'playing' && timeLeft > 0 && !feedback) {
-            timer = setInterval(() => {
-                setTimeLeft(t => t - 1);
-            }, 1000);
-        } else if (timeLeft === 0 && gameStatus === 'playing' && !feedback) {
-            handleTimeout();
+    const handleTimeout = useCallback(() => {
+        if (gameStatus === 'playing' && !feedback) {
+            handleAnswer(0);
         }
-        return () => clearInterval(timer);
-    }, [gameStatus, timeLeft, feedback]);
+    }, [gameStatus, feedback]);
 
-    const handleTimeout = () => {
-        handleAnswer(0);
-    };
-
-    const shuffleArray = (array) => {
-        let currentIndex = array.length, randomIndex;
-        while (currentIndex !== 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-            [array[currentIndex], array[randomIndex]] = [
-                array[randomIndex], array[currentIndex]];
-        }
-        return array;
-    };
+    const { timeLeft, resetTimer } = useTimer(
+        TIME_LIMITS.quiz,
+        gameStatus === 'playing' && !feedback,
+        handleTimeout
+    );
 
     const startGame = (selectedTheme) => {
         setTheme(selectedTheme);
         const themed = characterData.filter(c => c.theme === selectedTheme);
 
-        // Fill pool
         let pool = [...themed];
-        while (pool.length < ROUNDS && pool.length > 0) {
+        while (pool.length < ROUNDS_PER_GAME && pool.length > 0) {
             pool = [...pool, ...themed];
         }
         if (pool.length === 0) pool = characterData;
 
-        // Uses Fisher-Yates shuffle
-        const shuffled = shuffleArray([...pool]).slice(0, ROUNDS);
-
+        const shuffled = shuffleArray([...pool]).slice(0, ROUNDS_PER_GAME);
         setQuestions(shuffled);
         setCurrentIndex(0);
         setScore(0);
         setGameStatus('playing');
-        setTimeLeft(15);
+        resetTimer(TIME_LIMITS.quiz);
         setJokerUsed(false);
         setFeedback(null);
     };
 
     const handleAnswer = (points) => {
-        // 1. Show Feedback immediately
         const isCorrect = points > 0;
         setFeedback(isCorrect ? 'correct' : 'wrong');
-
-        // 2. Update Score immediately (visual feedback)
         if (isCorrect) setScore(s => s + points);
 
-        // 3. Wait for animation, then move to next
         setTimeout(() => {
             nextQuestion();
         }, 2000);
     };
 
     const nextQuestion = () => {
-        if (currentIndex + 1 >= ROUNDS) {
+        if (currentIndex + 1 >= ROUNDS_PER_GAME) {
             setGameStatus('summary');
         } else {
             setCurrentIndex(i => i + 1);
-            setTimeLeft(15);
+            resetTimer(TIME_LIMITS.quiz);
             setFeedback(null);
             setJokerUsed(false);
         }
@@ -93,7 +70,7 @@ const QuizGame = ({ onExit }) => {
     const getBgImage = () => {
         switch (theme) {
             case 'disney': return 'url(/assets/bg_disney.png)';
-            case 'pokemon': return 'url(/assets/bg_pokemon.png)'; // You might need to add this background or reuse one
+            case 'pokemon': return 'url(/assets/bg_pokemon.png)';
             default: return 'url(/assets/bg_main.png)';
         }
     };
@@ -109,10 +86,7 @@ const QuizGame = ({ onExit }) => {
                 justifyContent: 'center'
             }}
         >
-            <button
-                className="btn-primary btn-menu"
-                onClick={onExit}
-            >
+            <button className="btn-primary btn-menu" onClick={onExit}>
                 🏠 Menu
             </button>
 
@@ -138,7 +112,7 @@ const QuizGame = ({ onExit }) => {
                     key={currentIndex}
                     data={questions[currentIndex]}
                     round={currentIndex + 1}
-                    totalRounds={ROUNDS}
+                    totalRounds={ROUNDS_PER_GAME}
                     score={score}
                     timeLeft={timeLeft}
                     jokerUsed={jokerUsed}
@@ -160,27 +134,14 @@ const QuizGame = ({ onExit }) => {
 const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, feedback, onJoker, onAnswer }) => {
     const [options, setOptions] = useState([]);
     const [disabled, setDisabled] = useState([]);
-    const [selected, setSelected] = useState(null); // Track selected option
+    const [selected, setSelected] = useState(null);
 
     useEffect(() => {
-        // Reuse parent's shuffle if possible, or duplicate logic. 
-        // For simplicity re-implement shuffle here or pass it down.
-        // Implementing simple Fisher-Yates here for options
-        const shuffle = (array) => {
-            let currentIndex = array.length, randomIndex;
-            while (currentIndex !== 0) {
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex--;
-                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-            }
-            return array;
-        };
-
-        const wrong = shuffle([...data.options]).slice(0, 5);
-        const all = shuffle([...wrong, data.name]);
+        const wrong = shuffleArray([...data.options]).slice(0, 5);
+        const all = shuffleArray([...wrong, data.name]);
         setOptions(all);
         setDisabled([]);
-        setSelected(null); // Reset selection
+        setSelected(null);
     }, [data]);
 
     useEffect(() => {
@@ -203,7 +164,6 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
 
     const getButtonStyle = (opt, i) => {
         if (!feedback) return disabled.includes(i) ? 'opacity-30' : '';
-
         if (opt === data.name) {
             return 'bg-green-500 text-white border-green-400 scale-105 shadow-[0_0_15px_rgba(34,197,94,0.6)] ring-2 ring-green-300';
         }
@@ -215,14 +175,11 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
 
     return (
         <div className="quiz-game-container">
-
-            {/* Top Bar - Header */}
             <div className="flex justify-between w-full max-w-2xl items-center bg-gray-900/60 backdrop-blur-md px-8 py-3 rounded-full border border-white/10 shadow-lg mb-4">
                 <div className="flex flex-col items-start">
                     <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Score</span>
                     <span className="text-2xl font-black text-yellow-400 drop-shadow-sm">{score}</span>
                 </div>
-
                 <div className="flex flex-col items-end">
                     <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Round</span>
                     <span className="text-xl font-bold text-white">{round}<span className="text-gray-500 text-sm">/{totalRounds}</span></span>
@@ -230,11 +187,10 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
             </div>
 
             <div className="quiz-main-content">
-                {/* Left Panel: Image */}
                 <div className="quiz-left-panel">
                     <div
                         className={`relative quiz-img-responsive transition-all duration-500 ease-out py-4
-                            ${feedback ? 'z-50 scale-125 translate-y-12' : 'scale-100'} 
+                            ${feedback ? 'z-50 scale-125 translate-y-12' : 'scale-100'}
                             ${feedback === 'correct' ? 'drop-shadow-[0_0_50px_rgba(34,197,94,0.8)]' :
                                 feedback === 'wrong' ? 'drop-shadow-[0_0_50px_rgba(239,68,68,0.8)] shake' : ''
                             }`}
@@ -248,7 +204,7 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                         }}
                     >
                         <img
-                            src={`${data.image}?v=${new Date().getTime()}`}
+                            src={data.image}
                             alt={data.name}
                             className={`max-w-full max-h-full object-contain rounded-2xl transition-all duration-500 ${feedback ? 'shadow-2xl' : ''}`}
                             onError={(e) => {
@@ -259,7 +215,6 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                             }}
                         />
 
-                        {/* Massive Text Overlay */}
                         {feedback === 'correct' && (
                             <div className="absolute inset-0 pointer-events-none" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-green-300 to-green-600 drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] animate-bounce scale-150 text-center leading-tight">
@@ -277,7 +232,6 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                     </div>
                 </div>
 
-                {/* Right Panel: Options & Joker */}
                 <div className="quiz-right-panel">
                     <div
                         className={`quiz-grid-responsive slide-up-animation transition-opacity duration-300 ${feedback ? 'opacity-90' : 'opacity-100'}`}
@@ -309,11 +263,10 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                             </button>
                         ))}
 
-                        {/* Joker */}
                         <button
                             onClick={onJoker}
                             disabled={jokerUsed || feedback}
-                            className={`joker-btn quiz-option-btn font-black text-lg 
+                            className={`joker-btn quiz-option-btn font-black text-lg
                                     ${jokerUsed ? 'grayscale opacity-50 animation-none' : ''}
                                 `}
                             style={{
@@ -329,16 +282,14 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                 </div>
             </div>
 
-            {/* Vertical Timer - Right Side */}
             <div className="timer-container">
                 <div
                     className="timer-bar-fill"
-                    style={{ height: `${(timeLeft / 15) * 100}%` }}
+                    style={{ height: `${(timeLeft / TIME_LIMITS.quiz) * 100}%` }}
                 />
             </div>
         </div>
     );
-
 };
 
 export default QuizGame;

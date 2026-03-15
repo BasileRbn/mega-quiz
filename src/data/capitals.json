@@ -173,5 +173,460 @@
         "iso": "pl",
         "lat": 52.2297,
         "lng": 21.0122
+    },
+    {
+        "name": "Paris",
+        "country": "France",
+        "iso": "fr",
+        "lat": 48.8566,
+        "lng": 2.3522
+    },
+    {
+        "name": "Vienne",
+        "country": "Autriche",
+        "iso": "at",
+        "lat": 48.2082,
+        "lng": 16.3738
+    },
+    {
+        "name": "Bruxelles",
+        "country": "Belgique",
+        "iso": "be",
+        "lat": 50.8503,
+        "lng": 4.3517
+    },
+    {
+        "name": "Amsterdam",
+        "country": "Pays-Bas",
+        "iso": "nl",
+        "lat": 52.3676,
+        "lng": 4.9041
+    },
+    {
+        "name": "Berne",
+        "country": "Suisse",
+        "iso": "ch",
+        "lat": 46.9480,
+        "lng": 7.4474
+    },
+    {
+        "name": "Copenhague",
+        "country": "Danemark",
+        "iso": "dk",
+        "lat": 55.6761,
+        "lng": 12.5683
+    },
+    {
+        "name": "Helsinki",
+        "country": "Finlande",
+        "iso": "fi",
+        "lat": 60.1699,
+        "lng": 24.9384
+    },
+    {
+        "name": "Dublin",
+        "country": "Irlande",
+        "iso": "ie",
+        "lat": 53.3498,
+        "lng": -6.2603
+    },
+    {
+        "name": "Prague",
+        "country": "Tchéquie",
+        "iso": "cz",
+        "lat": 50.0755,
+        "lng": 14.4378
+    },
+    {
+        "name": "Budapest",
+        "country": "Hongrie",
+        "iso": "hu",
+        "lat": 47.4979,
+        "lng": 19.0402
+    },
+    {
+        "name": "Bucarest",
+        "country": "Roumanie",
+        "iso": "ro",
+        "lat": 44.4268,
+        "lng": 26.1025
+    },
+    {
+        "name": "Sofia",
+        "country": "Bulgarie",
+        "iso": "bg",
+        "lat": 42.6977,
+        "lng": 23.3219
+    },
+    {
+        "name": "Zagreb",
+        "country": "Croatie",
+        "iso": "hr",
+        "lat": 45.8150,
+        "lng": 15.9819
+    },
+    {
+        "name": "Belgrade",
+        "country": "Serbie",
+        "iso": "rs",
+        "lat": 44.7866,
+        "lng": 20.4489
+    },
+    {
+        "name": "Kiev",
+        "country": "Ukraine",
+        "iso": "ua",
+        "lat": 50.4501,
+        "lng": 30.5234
+    },
+    {
+        "name": "Bratislava",
+        "country": "Slovaquie",
+        "iso": "sk",
+        "lat": 48.1486,
+        "lng": 17.1077
+    },
+    {
+        "name": "Ljubljana",
+        "country": "Slovénie",
+        "iso": "si",
+        "lat": 46.0569,
+        "lng": 14.5058
+    },
+    {
+        "name": "Tallinn",
+        "country": "Estonie",
+        "iso": "ee",
+        "lat": 59.4370,
+        "lng": 24.7536
+    },
+    {
+        "name": "Riga",
+        "country": "Lettonie",
+        "iso": "lv",
+        "lat": 56.9496,
+        "lng": 24.1052
+    },
+    {
+        "name": "Vilnius",
+        "country": "Lituanie",
+        "iso": "lt",
+        "lat": 54.6872,
+        "lng": 25.2797
+    },
+    {
+        "name": "Tirana",
+        "country": "Albanie",
+        "iso": "al",
+        "lat": 41.3275,
+        "lng": 19.8187
+    },
+    {
+        "name": "Reykjavik",
+        "country": "Islande",
+        "iso": "is",
+        "lat": 64.1466,
+        "lng": -21.9426
+    },
+    {
+        "name": "Bangkok",
+        "country": "Thaïlande",
+        "iso": "th",
+        "lat": 13.7563,
+        "lng": 100.5018
+    },
+    {
+        "name": "Hanoï",
+        "country": "Viêt Nam",
+        "iso": "vn",
+        "lat": 21.0285,
+        "lng": 105.8542
+    },
+    {
+        "name": "Manille",
+        "country": "Philippines",
+        "iso": "ph",
+        "lat": 14.5995,
+        "lng": 120.9842
+    },
+    {
+        "name": "Kuala Lumpur",
+        "country": "Malaisie",
+        "iso": "my",
+        "lat": 3.1390,
+        "lng": 101.6869
+    },
+    {
+        "name": "Singapour",
+        "country": "Singapour",
+        "iso": "sg",
+        "lat": 1.3521,
+        "lng": 103.8198
+    },
+    {
+        "name": "Islamabad",
+        "country": "Pakistan",
+        "iso": "pk",
+        "lat": 33.6844,
+        "lng": 73.0479
+    },
+    {
+        "name": "Dacca",
+        "country": "Bangladesh",
+        "iso": "bd",
+        "lat": 23.8103,
+        "lng": 90.4125
+    },
+    {
+        "name": "Colombo",
+        "country": "Sri Lanka",
+        "iso": "lk",
+        "lat": 6.9271,
+        "lng": 79.8612
+    },
+    {
+        "name": "Katmandou",
+        "country": "Népal",
+        "iso": "np",
+        "lat": 27.7172,
+        "lng": 85.3240
+    },
+    {
+        "name": "Oulan-Bator",
+        "country": "Mongolie",
+        "iso": "mn",
+        "lat": 47.8864,
+        "lng": 106.9057
+    },
+    {
+        "name": "Téhéran",
+        "country": "Iran",
+        "iso": "ir",
+        "lat": 35.6892,
+        "lng": 51.3890
+    },
+    {
+        "name": "Bagdad",
+        "country": "Irak",
+        "iso": "iq",
+        "lat": 33.3152,
+        "lng": 44.3661
+    },
+    {
+        "name": "Beyrouth",
+        "country": "Liban",
+        "iso": "lb",
+        "lat": 33.8938,
+        "lng": 35.5018
+    },
+    {
+        "name": "Amman",
+        "country": "Jordanie",
+        "iso": "jo",
+        "lat": 31.9454,
+        "lng": 35.9284
+    },
+    {
+        "name": "Rabat",
+        "country": "Maroc",
+        "iso": "ma",
+        "lat": 34.0209,
+        "lng": -6.8416
+    },
+    {
+        "name": "Alger",
+        "country": "Algérie",
+        "iso": "dz",
+        "lat": 36.7538,
+        "lng": 3.0588
+    },
+    {
+        "name": "Tunis",
+        "country": "Tunisie",
+        "iso": "tn",
+        "lat": 36.8065,
+        "lng": 10.1815
+    },
+    {
+        "name": "Nairobi",
+        "country": "Kenya",
+        "iso": "ke",
+        "lat": -1.2921,
+        "lng": 36.8219
+    },
+    {
+        "name": "Addis-Abeba",
+        "country": "Éthiopie",
+        "iso": "et",
+        "lat": 9.0250,
+        "lng": 38.7469
+    },
+    {
+        "name": "Accra",
+        "country": "Ghana",
+        "iso": "gh",
+        "lat": 5.6037,
+        "lng": -0.1870
+    },
+    {
+        "name": "Dakar",
+        "country": "Sénégal",
+        "iso": "sn",
+        "lat": 14.7167,
+        "lng": -17.4677
+    },
+    {
+        "name": "Abuja",
+        "country": "Nigéria",
+        "iso": "ng",
+        "lat": 9.0579,
+        "lng": 7.4951
+    },
+    {
+        "name": "Kinshasa",
+        "country": "République démocratique du Congo",
+        "iso": "cd",
+        "lat": -4.4419,
+        "lng": 15.2663
+    },
+    {
+        "name": "Luanda",
+        "country": "Angola",
+        "iso": "ao",
+        "lat": -8.8390,
+        "lng": 13.2894
+    },
+    {
+        "name": "Maputo",
+        "country": "Mozambique",
+        "iso": "mz",
+        "lat": -25.9692,
+        "lng": 32.5732
+    },
+    {
+        "name": "Antananarivo",
+        "country": "Madagascar",
+        "iso": "mg",
+        "lat": -18.8792,
+        "lng": 47.5079
+    },
+    {
+        "name": "Lima",
+        "country": "Pérou",
+        "iso": "pe",
+        "lat": -12.0464,
+        "lng": -77.0428
+    },
+    {
+        "name": "Bogota",
+        "country": "Colombie",
+        "iso": "co",
+        "lat": 4.7110,
+        "lng": -74.0721
+    },
+    {
+        "name": "Santiago",
+        "country": "Chili",
+        "iso": "cl",
+        "lat": -33.4489,
+        "lng": -70.6693
+    },
+    {
+        "name": "Quito",
+        "country": "Équateur",
+        "iso": "ec",
+        "lat": -0.1807,
+        "lng": -78.4678
+    },
+    {
+        "name": "La Havane",
+        "country": "Cuba",
+        "iso": "cu",
+        "lat": 23.1136,
+        "lng": -82.3666
+    },
+    {
+        "name": "Montevideo",
+        "country": "Uruguay",
+        "iso": "uy",
+        "lat": -34.9011,
+        "lng": -56.1645
+    },
+    {
+        "name": "Asuncion",
+        "country": "Paraguay",
+        "iso": "py",
+        "lat": -25.2637,
+        "lng": -57.5759
+    },
+    {
+        "name": "La Paz",
+        "country": "Bolivie",
+        "iso": "bo",
+        "lat": -16.4897,
+        "lng": -68.1193
+    },
+    {
+        "name": "Wellington",
+        "country": "Nouvelle-Zélande",
+        "iso": "nz",
+        "lat": -41.2865,
+        "lng": 174.7762
+    },
+    {
+        "name": "Phnom Penh",
+        "country": "Cambodge",
+        "iso": "kh",
+        "lat": 11.5564,
+        "lng": 104.9282
+    },
+    {
+        "name": "Pyongyang",
+        "country": "Corée du Nord",
+        "iso": "kp",
+        "lat": 39.0392,
+        "lng": 125.7625
+    },
+    {
+        "name": "Tbilissi",
+        "country": "Géorgie",
+        "iso": "ge",
+        "lat": 41.7151,
+        "lng": 44.8271
+    },
+    {
+        "name": "Erevan",
+        "country": "Arménie",
+        "iso": "am",
+        "lat": 40.1792,
+        "lng": 44.4991
+    },
+    {
+        "name": "Bakou",
+        "country": "Azerbaïdjan",
+        "iso": "az",
+        "lat": 40.4093,
+        "lng": 49.8671
+    },
+    {
+        "name": "Kampala",
+        "country": "Ouganda",
+        "iso": "ug",
+        "lat": 0.3476,
+        "lng": 32.5825
+    },
+    {
+        "name": "Lusaka",
+        "country": "Zambie",
+        "iso": "zm",
+        "lat": -15.3875,
+        "lng": 28.3228
+    },
+    {
+        "name": "Harare",
+        "country": "Zimbabwe",
+        "iso": "zw",
+        "lat": -17.8252,
+        "lng": 31.0335
     }
 ]

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getMuted, toggleMute } from '../utils/sounds';
 
-const MainMenu = ({ onSelectGame }) => {
+const MainMenu = ({ onSelectGame, onShowStats }) => {
+    const [muted, setMuted] = useState(getMuted());
     return (
         <div className="absolute-cover z-high flex-center"
             style={{
@@ -49,6 +51,23 @@ const MainMenu = ({ onSelectGame }) => {
                         <h3>Histoire de France</h3>
                         <p>Jeanne d'Arc, Napoléon... Les lieux cultes !</p>
                     </div>
+                </div>
+
+                <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                    <button
+                        onClick={onShowStats}
+                        className="btn-primary"
+                        style={{ background: 'linear-gradient(135deg, #f59e0b, #ef4444)', fontSize: '1rem', padding: '0.75rem 2rem' }}
+                    >
+                        📊 Statistiques & Achievements
+                    </button>
+                    <button
+                        onClick={() => setMuted(toggleMute())}
+                        className="btn-primary"
+                        style={{ background: muted ? '#94a3b8' : 'linear-gradient(135deg, #22c55e, #10b981)', fontSize: '1rem', padding: '0.75rem 2rem' }}
+                    >
+                        {muted ? '🔇 Son désactivé' : '🔊 Son activé'}
+                    </button>
                 </div>
             </div>
         </div>

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, query, where, orderBy, limit, getDocs, serverTimestamp } from 'firebase/firestore';
+import { recordGame } from '../utils/statsManager';
+import { checkAchievements } from '../utils/achievements';
+import { getStats } from '../utils/statsManager';
 
 const Leaderboard = ({ finalScore, onRestart, gameMode }) => {
     const [scores, setScores] = useState([]);
@@ -15,6 +18,13 @@ const Leaderboard = ({ finalScore, onRestart, gameMode }) => {
             fetchScores();
         }
     }, [gameMode]);
+
+    useEffect(() => {
+        recordGame(gameMode, finalScore, 20);
+        const stats = getStats();
+        const newAchievements = checkAchievements(stats);
+        // newAchievements are logged but toast is handled by parent
+    }, [gameMode, finalScore]);
 
     const fetchScores = async () => {
         setLoading(true);

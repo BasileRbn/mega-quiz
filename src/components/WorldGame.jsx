@@ -1,39 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import MapGame from './MapGame';
 import ScoreBoard from './ScoreBoard';
 import Leaderboard from './Leaderboard';
 import capitalsData from '../data/capitals.json';
-import { calculateDistance, calculateScore, calculateTimeMultiplier } from '../utils/gameUtils';
-
-const shuffleArray = (array) => {
-    let currentIndex = array.length, randomIndex;
-    // While there remain elements to shuffle.
-    while (currentIndex !== 0) {
-        // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-    }
-    return array;
-};
+import { shuffleArray, calculateDistance, calculateScore, calculateTimeMultiplier } from '../utils/gameUtils';
+import { useTimer } from '../hooks/useTimer';
+import { TIME_LIMITS, ROUNDS_PER_GAME, FLAG_BONUS } from '../utils/constants';
 
 const FlagBonus = ({ country, onSelectFlag }) => {
     const [options, setOptions] = useState([]);
-    const [step, setStep] = useState('choose'); // choose, feedback, outcome
+    const [step, setStep] = useState('choose');
     const [userChoiceIso, setUserChoiceIso] = useState(null);
     const [outcome, setOutcome] = useState(null);
     const [disabledOptions, setDisabledOptions] = useState([]);
     const [jokerUsed, setJokerUsed] = useState(false);
 
     useEffect(() => {
-        const distractions = capitalsData
-            .filter(c => c.iso !== country.iso)
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 3);
-
-        // Use Fisher-Yates for better shuffle
+        const distractions = shuffleArray(
+            capitalsData.filter(c => c.iso !== country.iso)
+        ).slice(0, 3);
         const all = shuffleArray([...distractions, country]);
         setOptions(all);
         setDisabledOptions([]);
@@ -50,16 +35,13 @@ const FlagBonus = ({ country, onSelectFlag }) => {
 
     const handleSelect = (iso) => {
         if (step !== 'choose' || disabledOptions.includes(iso)) return;
-
         setUserChoiceIso(iso);
         const isWin = iso === country.iso;
         setOutcome(isWin ? 'correct' : 'wrong');
-        setStep('feedback'); // Immediate border feedback on grid
+        setStep('feedback');
 
-        // Wait 1s then show full outcome
         setTimeout(() => {
             setStep('outcome');
-            // Then wait 2.5s to close
             setTimeout(() => {
                 onSelectFlag(isWin);
             }, 2500);
@@ -75,6 +57,7 @@ const FlagBonus = ({ country, onSelectFlag }) => {
                             <h1 className="text-6xl font-black text-green-500 mb-8 animate-bounce">BRAVO ! 🎉</h1>
                             <img
                                 src={`https://flagcdn.com/w640/${country.iso}.png`}
+                                alt={`Drapeau de ${country.country}`}
                                 className="rounded-2xl shadow-2xl border-8 border-green-500 mx-auto"
                                 style={{ width: '400px', height: 'auto' }}
                             />
@@ -88,6 +71,7 @@ const FlagBonus = ({ country, onSelectFlag }) => {
                                     <span className="text-green-400 font-bold mb-2 text-xl">La bonne réponse :</span>
                                     <img
                                         src={`https://flagcdn.com/w640/${country.iso}.png`}
+                                        alt={`Drapeau de ${country.country}`}
                                         className="rounded-xl shadow-2xl border-4 border-green-500"
                                         style={{ width: '300px' }}
                                     />
@@ -97,6 +81,7 @@ const FlagBonus = ({ country, onSelectFlag }) => {
                                         <span className="text-red-400 font-bold mb-2 text-xl">Votre choix :</span>
                                         <img
                                             src={`https://flagcdn.com/w640/${userChoiceIso}.png`}
+                                            alt="Votre choix"
                                             className="rounded-xl shadow-2xl border-4 border-red-500 grayscale"
                                             style={{ width: '200px' }}
                                         />
@@ -125,25 +110,25 @@ const FlagBonus = ({ country, onSelectFlag }) => {
 
                         let cardStyle = {
                             width: '100%',
-                            height: '140px', // Fixed height for consistency
-                            objectFit: 'contain', // Ensure full flag is visible
+                            height: '140px',
+                            objectFit: 'contain',
                             borderRadius: '12px',
                             cursor: (step === 'choose' && !isDisabled) ? 'pointer' : 'default',
                             boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
                             border: '4px solid transparent',
                             transition: 'all 0.3s',
-                            backgroundColor: '#f8fafc', // Light bg for better flag contrast
+                            backgroundColor: '#f8fafc',
                             opacity: isDisabled ? 0.2 : 1,
                             filter: isDisabled ? 'grayscale(100%)' : 'none'
                         };
 
                         if (step === 'feedback') {
                             if (isCorrect) {
-                                cardStyle.border = '4px solid #22c55e'; // Green
+                                cardStyle.border = '4px solid #22c55e';
                                 cardStyle.transform = 'scale(1.05)';
                                 cardStyle.boxShadow = '0 0 20px #22c55e';
                             } else if (isSelected) {
-                                cardStyle.border = '4px solid #ef4444'; // Red
+                                cardStyle.border = '4px solid #ef4444';
                                 cardStyle.opacity = 0.8;
                             } else {
                                 cardStyle.opacity = 0.5;
@@ -155,11 +140,11 @@ const FlagBonus = ({ country, onSelectFlag }) => {
                                 <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                                     <img
                                         src={`https://flagcdn.com/w320/${opt.iso}.png`}
+                                        alt={`Option ${i + 1}`}
                                         className={step === 'choose' && !isDisabled ? "flag-option hover:scale-105" : ""}
                                         style={cardStyle}
                                         onClick={() => handleSelect(opt.iso)}
                                     />
-                                    {/* IMMEDIATE FEEDBACK ICON OVERLAY */}
                                     {step === 'feedback' && isCorrect && (
                                         <div className="absolute-cover flex-center" style={{ background: 'rgba(34, 197, 94, 0.4)', borderRadius: '12px', pointerEvents: 'none' }}>
                                             <span style={{ fontSize: '3rem', color: 'white', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>✅</span>
@@ -175,7 +160,6 @@ const FlagBonus = ({ country, onSelectFlag }) => {
                         );
                     })}
 
-                    {/* Joker Button */}
                     <button
                         onClick={handleJoker}
                         disabled={jokerUsed || step !== 'choose'}
@@ -206,22 +190,19 @@ const WorldGame = ({ onExit }) => {
     const [currentRoundIndex, setCurrentRoundIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [lastResult, setLastResult] = useState(null);
-    const [timeLeft, setTimeLeft] = useState(15);
     const [showFlagBonus, setShowFlagBonus] = useState(false);
 
-    const ROUNDS_PER_GAME = 20;
-
-    useEffect(() => {
-        let timer;
-        if (gameStatus === 'playing' && timeLeft > 0 && !showFlagBonus) {
-            timer = setInterval(() => {
-                setTimeLeft((prev) => prev - 1);
-            }, 1000);
-        } else if (timeLeft === 0 && gameStatus === 'playing' && !showFlagBonus) {
+    const handleTimeout = useCallback(() => {
+        if (gameStatus === 'playing' && !showFlagBonus) {
             handleGuess(null);
         }
-        return () => clearInterval(timer);
-    }, [gameStatus, timeLeft, showFlagBonus]);
+    }, [gameStatus, showFlagBonus]);
+
+    const { timeLeft, resetTimer } = useTimer(
+        TIME_LIMITS.world,
+        gameStatus === 'playing' && !showFlagBonus,
+        handleTimeout
+    );
 
     const startGame = () => {
         const shuffled = shuffleArray([...capitalsData]);
@@ -230,7 +211,7 @@ const WorldGame = ({ onExit }) => {
         setScore(0);
         setLastResult(null);
         setGameStatus('playing');
-        setTimeLeft(15);
+        resetTimer(TIME_LIMITS.world);
         setShowFlagBonus(false);
     };
 
@@ -248,13 +229,9 @@ const WorldGame = ({ onExit }) => {
         }
 
         setScore(s => s + points);
-        setLastResult({
-            distance: dist,
-            points: points
-        });
+        setLastResult({ distance: dist, points });
         setGameStatus('feedback');
 
-        // Auto-advance to Flag Bonus after 3 seconds
         setTimeout(() => {
             setShowFlagBonus(true);
         }, 3000);
@@ -262,7 +239,7 @@ const WorldGame = ({ onExit }) => {
 
     const handleFlagChoice = (isCorrect) => {
         if (isCorrect) {
-            setScore(s => s + 500);
+            setScore(s => s + FLAG_BONUS);
         }
         setShowFlagBonus(false);
         handleNextRound();
@@ -275,16 +252,13 @@ const WorldGame = ({ onExit }) => {
             setCurrentRoundIndex(i => i + 1);
             setLastResult(null);
             setGameStatus('playing');
-            setTimeLeft(15);
+            resetTimer(TIME_LIMITS.world);
         }
     };
 
     return (
         <div className="full-screen">
-            <button
-                className="btn-primary btn-menu"
-                onClick={onExit}
-            >
+            <button className="btn-primary btn-menu" onClick={onExit}>
                 🏠 Menu
             </button>
 
@@ -294,7 +268,7 @@ const WorldGame = ({ onExit }) => {
                         target={rounds[currentRoundIndex]}
                         result={lastResult}
                         onGuess={handleGuess}
-                        bounds={WORLD_BOUNDS} // World Bounds
+                        bounds={WORLD_BOUNDS}
                     />
                     <ScoreBoard
                         score={score}
@@ -302,6 +276,7 @@ const WorldGame = ({ onExit }) => {
                         totalRounds={ROUNDS_PER_GAME}
                         targetCity={rounds[currentRoundIndex]}
                         timer={(!showFlagBonus && gameStatus === 'playing') ? timeLeft : null}
+                        maxTime={TIME_LIMITS.world}
                         lastResult={lastResult}
                     />
                     {showFlagBonus && (
