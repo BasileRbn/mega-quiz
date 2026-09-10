@@ -1,15 +1,29 @@
 :root {
-  --color-bg: #0f172a;
-  --color-bg-card: #1e293b;
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #94a3b8;
-  --color-accent: #38bdf8;
-  --color-accent-glow: rgba(56, 189, 248, 0.5);
-  --color-success: #4ade80;
-  --color-error: #f472b6;
-  --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-glow: 0 0 15px var(--color-accent-glow);
+  /* Palette bonbon, joyeuse et lisible pour les enfants */
+  --violet: #7c3aed;
+  --violet-dark: #5b21b6;
+  --sky: #38bdf8;
+  --sky-dark: #0284c7;
+  --sun: #fbbf24;
+  --sun-dark: #d97706;
+  --coral: #fb7185;
+  --coral-dark: #e11d48;
+  --mint: #34d399;
+  --mint-dark: #059669;
+  --ink: #312e81;
+  --paper: #ffffff;
+
+  --color-bg: #ede9fe;
+  --color-text-primary: #312e81;
+  --color-text-secondary: #6d6a9c;
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+
+  --font-main: 'Fredoka', 'Baloo 2', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-title: 'Baloo 2', 'Fredoka', system-ui, sans-serif;
+
+  --shadow-card: 0 10px 25px -8px rgba(91, 33, 182, 0.25);
+  --shadow-pop: 0 6px 0 rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -20,18 +34,18 @@
 
 body {
   font-family: var(--font-main);
-  background-color: var(--color-bg);
+  background: linear-gradient(160deg, #c4b5fd 0%, #a5d8ff 45%, #bbf7d0 100%);
   color: var(--color-text-primary);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  overflow: hidden; /* Prevent scrolling on the game screen */
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
 
 #root {
   height: 100%;
-  border-radius: 0; 
+  border-radius: 0;
   padding: 0;
   text-align: center;
 }
@@ -39,28 +53,27 @@ body {
 button {
   cursor: pointer;
   border: none;
-  background: var(--color-accent);
-  color: #0f172a;
+  font-family: var(--font-main);
+  background: var(--violet);
+  color: white;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 600;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  border-radius: 14px;
+  transition: all 0.15s ease;
 }
 
 button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
 }
 
 button:active {
-  transform: translateY(0);
+  transform: translateY(1px);
 }
 
 .frosted {
-  background: rgba(30, 41, 59, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }

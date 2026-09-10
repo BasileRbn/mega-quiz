@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Firebase deploy cache and Claude Code worktrees (local copies of the repo)
+.firebase/
+.claude/worktrees/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

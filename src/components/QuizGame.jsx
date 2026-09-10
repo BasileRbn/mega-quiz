@@ -15,6 +15,15 @@ const QuizGame = ({ onExit }) => {
 
     const ROUNDS = 20;
 
+    // Précharge les images des 3 prochaines questions pour éviter tout lag
+    useEffect(() => {
+        if (gameStatus !== 'playing') return;
+        questions.slice(currentIndex + 1, currentIndex + 4).forEach(q => {
+            const img = new Image();
+            img.src = q.image;
+        });
+    }, [gameStatus, currentIndex, questions]);
+
     useEffect(() => {
         let timer;
         if (gameStatus === 'playing' && timeLeft > 0 && !feedback) {
@@ -90,21 +99,19 @@ const QuizGame = ({ onExit }) => {
         }
     };
 
-    const getBgImage = () => {
+    const getBgClass = () => {
+        if (gameStatus !== 'playing') return 'quiz-bg-default';
         switch (theme) {
-            case 'disney': return 'url(/assets/bg_disney.png)';
-            case 'pokemon': return 'url(/assets/bg_pokemon.png)'; // You might need to add this background or reuse one
-            default: return 'url(/assets/bg_main.png)';
+            case 'disney': return 'quiz-bg-disney';
+            case 'pokemon': return 'quiz-bg-pokemon';
+            default: return 'quiz-bg-default';
         }
     };
 
     return (
-        <div className="full-screen text-white flex flex-col"
+        <div className={`full-screen text-white flex flex-col ${getBgClass()}`}
             style={{
-                backgroundImage: gameStatus === 'playing' ? getBgImage() : 'url(/assets/bg_main.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                transition: 'background-image 0.5s ease-in-out',
+                transition: 'background 0.5s ease-in-out',
                 alignItems: 'center',
                 justifyContent: 'center'
             }}
@@ -118,15 +125,18 @@ const QuizGame = ({ onExit }) => {
 
             {gameStatus === 'intro' && (
                 <div className="absolute-cover flex-center z-high bg-black bg-opacity-60 backdrop-blur-sm">
-                    <div className="modal-content glass-effect">
+                    <div className="modal-content glass-effect" style={{ maxWidth: '600px' }}>
+                        <div className="kids-intro-emoji floaty">⚡</div>
                         <h1 className="title-gradient">QUIZ PERSONNAGES</h1>
                         <p className="subtitle">Choisis ton univers !</p>
-                        <div className="flex gap-12 justify-center flex-wrap mt-8">
-                            <button onClick={() => startGame('disney')} className="btn-primary bg-pink-500 hover:scale-110 transition-transform">
-                                <span style={{ fontSize: '2rem' }}>✨</span><br />Disney
+                        <div className="theme-choice-grid">
+                            <button onClick={() => startGame('disney')} className="theme-card theme-disney">
+                                <img src="/images/quiz/disney/mickey_mouse.webp" alt="Disney" />
+                                Disney
                             </button>
-                            <button onClick={() => startGame('pokemon')} className="btn-primary bg-yellow-500 hover:scale-110 transition-transform">
-                                <span style={{ fontSize: '2rem' }}>⚡</span><br />Pokémon
+                            <button onClick={() => startGame('pokemon')} className="theme-card theme-pokemon">
+                                <img src="/images/quiz/pokemon/Pikachu.webp" alt="Pokémon" />
+                                Pokémon
                             </button>
                         </div>
                     </div>
@@ -217,16 +227,12 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
         <div className="quiz-game-container">
 
             {/* Top Bar - Header */}
-            <div className="flex justify-between w-full max-w-2xl items-center bg-gray-900/60 backdrop-blur-md px-8 py-3 rounded-full border border-white/10 shadow-lg mb-4">
-                <div className="flex flex-col items-start">
-                    <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Score</span>
-                    <span className="text-2xl font-black text-yellow-400 drop-shadow-sm">{score}</span>
-                </div>
-
-                <div className="flex flex-col items-end">
-                    <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">Round</span>
-                    <span className="text-xl font-bold text-white">{round}<span className="text-gray-500 text-sm">/{totalRounds}</span></span>
-                </div>
+            <div className="hud-pill-top-right" style={{ position: 'static', margin: '0 auto 0.75rem' }}>
+                <span className="hud-label">Score</span>
+                <span className="hud-value" style={{ color: '#d97706' }}>{score}</span>
+                <span className="hud-separator">•</span>
+                <span className="hud-label">Question</span>
+                <span className="hud-value">{round}/{totalRounds}</span>
             </div>
 
             <div className="quiz-main-content">
@@ -248,15 +254,9 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                         }}
                     >
                         <img
-                            src={`${data.image}?v=${new Date().getTime()}`}
+                            src={data.image}
                             alt={data.name}
                             className={`max-w-full max-h-full object-contain rounded-2xl transition-all duration-500 ${feedback ? 'shadow-2xl' : ''}`}
-                            onError={(e) => {
-                                if (!e.target.src.includes('bg_main.png')) {
-                                    e.target.src = '/assets/bg_main.png';
-                                    e.target.style.filter = 'grayscale(100%) blur(2px)';
-                                }
-                            }}
                         />
 
                         {/* Massive Text Overlay */}
@@ -270,7 +270,7 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                         {feedback === 'wrong' && (
                             <div className="absolute inset-0 pointer-events-none" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-b from-red-400 to-red-700 drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] animate-shake scale-150 text-center leading-tight">
-                                    RATE...
+                                    RATÉ !
                                 </h1>
                             </div>
                         )}
@@ -291,7 +291,7 @@ const QuestionRound = ({ data, round, totalRounds, score, timeLeft, jokerUsed, f
                     >
                         {options.map((opt, i) => (
                             <button
-                                key={i}
+                                key={`${data.name}-${i}`}
                                 disabled={disabled.includes(i) || feedback}
                                 onClick={() => handleChoice(opt)}
                                 className={`

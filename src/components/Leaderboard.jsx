@@ -1,45 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc, query, where, orderBy, limit, getDocs, serverTimestamp } from 'firebase/firestore';
+import React, { useState, useEffect, useCallback } from 'react';
+import { fetchAllScores, saveScore, topScoresForGame, getLastPlayerName } from '../utils/leaderboardUtils';
 
 const Leaderboard = ({ finalScore, onRestart, gameMode }) => {
     const [scores, setScores] = useState([]);
-    const [playerName, setPlayerName] = useState('');
+    const [playerName, setPlayerName] = useState(getLastPlayerName());
     const [hasSaved, setHasSaved] = useState(false);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState(null);
 
+    const fetchScores = useCallback(async () => {
+        setLoading(true);
+        setError(null);
+        try {
+            const all = await fetchAllScores();
+            setScores(topScoresForGame(all, gameMode, 10));
+        } catch (error) {
+            console.error("Error fetching leaderboard:", error);
+            setError("Impossible de charger le classement.");
+        } finally {
+            setLoading(false);
+        }
+    }, [gameMode]);
+
     useEffect(() => {
         if (gameMode) {
             fetchScores();
         }
-    }, [gameMode]);
-
-    const fetchScores = async () => {
-        setLoading(true);
-        setError(null);
-        try {
-            const q = query(
-                collection(db, "scores"),
-                where("gameMode", "==", gameMode),
-                orderBy("score", "desc"),
-                limit(10)
-            );
-
-            const querySnapshot = await getDocs(q);
-            const fetchedScores = [];
-            querySnapshot.forEach((doc) => {
-                fetchedScores.push(doc.data());
-            });
-            setScores(fetchedScores);
-        } catch (error) {
-            console.error("Error fetching leaderboard:", error);
-            setError("Impossible de charger le classement. Vérifiez votre connexion.");
-        } finally {
-            setLoading(false);
-        }
-    };
+    }, [gameMode, fetchScores]);
 
     const handleSave = async () => {
         if (!playerName.trim()) return;
@@ -47,15 +35,9 @@ const Leaderboard = ({ finalScore, onRestart, gameMode }) => {
         setSaving(true);
         setError(null);
         try {
-            await addDoc(collection(db, "scores"), {
-                name: playerName.trim(),
-                score: finalScore,
-                gameMode: gameMode,
-                timestamp: serverTimestamp(),
-                date: new Date().toLocaleDateString()
-            });
+            await saveScore(gameMode, playerName, finalScore);
             setHasSaved(true);
-            fetchScores(); // Refresh list
+            fetchScores(); // Rafraîchit la liste
         } catch (error) {
             console.error("Error saving score:", error);
             setError("Erreur lors de la sauvegarde. Réessayez.");

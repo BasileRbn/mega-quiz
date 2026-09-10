@@ -101,39 +101,16 @@ const HistoryGame = ({ onExit }) => {
 
             {(gameStatus === 'playing' || gameStatus === 'feedback') && (
                 <>
-                    {/* CUSTOM HUD FOR HISTORY: Top Bar for Question */}
-                    {/* CUSTOM HUD FOR HISTORY: Bottom Bar for Question */}
-                    <div style={{
-                        position: 'absolute',
-                        bottom: '50px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        zIndex: 1000,
-                        width: '90%',
-                        maxWidth: '900px',
-                        pointerEvents: 'none'
-                    }}>
-                        <div className="glass-effect" style={{
-                            padding: '1rem 2rem',
-                            borderRadius: '1rem',
-                            border: '1px solid rgba(255,255,255,0.3)',
-                            pointerEvents: 'auto',
-                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
-                                <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-                                    <h2 style={{ fontSize: '1.6rem', fontWeight: 800, margin: 0, lineHeight: 1.1 }} className="title-gradient">
-                                        {currentQuestion?.event}
-                                    </h2>
-                                </div>
-                                <div style={{ flex: 1, textAlign: 'right', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-                                    <span className="text-secondary" style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.2rem', display: 'block' }}>
-                                        {currentQuestion?.date}
-                                    </span>
-                                    <p style={{ fontSize: '1rem', color: '#334155', margin: 0 }}>
-                                        {currentQuestion?.description}
-                                    </p>
+                    {/* HUD Histoire : la question (en bas sur desktop, en haut sur mobile via CSS) */}
+                    <div className="history-question-wrap">
+                        <div className="glass-effect history-question-card">
+                            <div className="history-question-inner">
+                                <h2 className="title-gradient history-question-title">
+                                    {currentQuestion?.event}
+                                </h2>
+                                <div className="history-question-side">
+                                    <span className="history-question-date">{currentQuestion?.date}</span>
+                                    <p className="history-question-desc">{currentQuestion?.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -157,13 +134,11 @@ const HistoryGame = ({ onExit }) => {
                     // We override the default target display in ScoreBoard or just ignore it because we have the top HUD
                     />
 
-                    {/* Feedback Overlay specific for History (Show City Name ONLY) */}
+                    {/* Révélation de la ville pendant le feedback */}
                     {gameStatus === 'feedback' && (
-                        <div style={{ position: 'absolute', top: '120px', right: '20px', zIndex: 9999, pointerEvents: 'none' }}>
-                            <div className="glass-effect p-6 rounded-3xl border-4 border-white shadow-2xl text-center flex-center flex-col" style={{ backgroundColor: 'rgba(255, 255, 255, 0.98)', minWidth: '300px', maxWidth: '400px' }}>
-                                <h2 className="text-5xl font-black mb-0" style={{ color: '#0f172a', textShadow: '0 2px 10px rgba(255,255,255,0.5)' }}>
-                                    {currentQuestion.city}
-                                </h2>
+                        <div className="history-city-reveal">
+                            <div className="glass-effect history-city-card">
+                                <h2>{currentQuestion.city}</h2>
                             </div>
                         </div>
                     )}
