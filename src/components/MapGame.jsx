@@ -60,9 +60,12 @@ const MapGame = ({ target, result, onGuess, bounds }) => {
                 center={[46.603354, 1.888334]} // Fallback center (France)
                 zoom={6} // Fallback zoom
             >
+                {/* Esri tiles: no API key needed, and no place names (they would give away the answers) */}
                 <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
+                    attribution='Tiles &copy; Esri &mdash; Esri, Garmin, GEBCO, NOAA NGDC, and other contributors'
+                    url="https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}"
+                    maxNativeZoom={10} // Esri serves "Map data not yet available" beyond z10; upscale instead
+                    maxZoom={12}
                 />
 
                 <MapEvents onGuess={handleMapClick} bounds={bounds} trigger={target} />

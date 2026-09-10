@@ -403,8 +403,8 @@ const CountriesGame = ({ onExit }) => {
                         >
                             <MapEffect bounds={null} />
                             <TileLayer
-                                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"
-                                attribution='&copy; OpenStreetMap'
+                                url="https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}"
+                                attribution='Tiles &copy; Esri &mdash; Esri, Garmin, GEBCO, NOAA NGDC, and other contributors'
                                 opacity={0.6}
                             />
                             {geoJsonData && (
@@ -502,6 +502,7 @@ const CountriesGame = ({ onExit }) => {
                         round={currentRoundIndex + 1}
                         totalRounds={ROUNDS_PER_GAME}
                         targetCity={{ name: rounds[currentRoundIndex]?.country }}
+                        targetLabel="Trouvez le pays :"
                         timer={gameStatus === 'playing_map' ? timeLeft : null}
                         lastResult={null}
                         containerClassName="hud-bottom-left"

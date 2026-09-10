@@ -1,7 +1,7 @@
 import React from 'react';
 import { TIMER_WARNING_THRESHOLD } from '../utils/constants';
 
-const ScoreBoard = ({ score, round, totalRounds, targetCity, timer, maxTime = 15, lastResult, containerClassName = "hud-sidebar" }) => {
+const ScoreBoard = ({ score, round, totalRounds, targetCity, targetLabel = "Trouvez la ville :", timer, maxTime = 15, lastResult, containerClassName = "hud-sidebar" }) => {
     const isTimerWarning = timer !== null && timer <= TIMER_WARNING_THRESHOLD;
 
     return (
@@ -18,7 +18,7 @@ const ScoreBoard = ({ score, round, totalRounds, targetCity, timer, maxTime = 15
 
                     {targetCity && (
                         <div className="target-city mt-4">
-                            <p className="subtitle" style={{ margin: 0, fontSize: '0.9rem', marginBottom: '0.2rem' }}>Trouvez la ville :</p>
+                            <p className="subtitle" style={{ margin: 0, fontSize: '0.9rem', marginBottom: '0.2rem' }}>{targetLabel}</p>
                             <h1 style={{ fontSize: '2.2rem', lineHeight: 1.1 }}>{targetCity.name}</h1>
                         </div>
                     )}
